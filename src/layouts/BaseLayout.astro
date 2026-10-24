@@ -40,7 +40,7 @@ const { title, description, ogImage } = Astro.props;
         document.documentElement.setAttribute('data-theme', theme);
         const metaTheme = document.getElementById('meta-theme-color');
         if (metaTheme) {
-          metaTheme.setAttribute('content', theme === 'light' ? '#ffffff' : '#0b0f1a');
+          metaTheme.setAttribute('content', theme === 'light' ? '#eaecf0' : '#0b0f1a');
         }
       })();
     </script>

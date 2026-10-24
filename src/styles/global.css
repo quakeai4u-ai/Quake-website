@@ -123,18 +123,18 @@ h6 {
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Light Theme Variable Overrides */
+/* Light Theme Variable Overrides (Ash Grey Palette) */
 [data-theme="light"] {
-  --color-dark-bg: #f8fafc;
-  --color-dark-surface: rgba(15, 23, 42, 0.03);
-  --color-dark-border: rgba(15, 23, 42, 0.08);
-  --color-dark-text: #0f172a;
-  --color-dark-text-muted: #64748b;
-  --color-light-bg: #ffffff;
-  --color-light-surface: #f8fafc;
-  --color-light-border: #e2e8f0;
-  --color-light-text: #0f172a;
-  --color-light-text-muted: #64748b;
+  --color-dark-bg: #e4e7ec;
+  --color-dark-surface: rgba(16, 24, 40, 0.05);
+  --color-dark-border: rgba(16, 24, 40, 0.12);
+  --color-dark-text: #101828;
+  --color-dark-text-muted: #475467;
+  --color-light-bg: #eaecf0;
+  --color-light-surface: #f2f4f7;
+  --color-light-border: #d0d5dd;
+  --color-light-text: #101828;
+  --color-light-text-muted: #475467;
 }
 
 /* --- Adaptive Layout Scaling for Wide, 1080p, 1440p & 4K Resolutions --- */
@@ -393,18 +393,30 @@ textarea:focus-visible {
   transform: translateY(-4px);
 }
 
-/* Light mode for card-dark */
+/* Light mode ash styling for cards */
+[data-theme="light"] .card {
+  background: linear-gradient(155deg, #f8f9fa 0%, #f2f4f7 50%, #e9ecef 100%);
+  border: 1px solid #d0d5dd;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.05), 0 4px 12px rgba(16, 24, 40, 0.04);
+}
+
+[data-theme="light"] .card:hover {
+  background: linear-gradient(155deg, #ffffff 0%, #f4f6f8 50%, #eaedf1 100%);
+  border-color: #98a2b3;
+  box-shadow: 0 14px 28px -4px rgba(16, 24, 40, 0.1);
+}
+
 [data-theme="light"] .card-dark {
-  background: linear-gradient(155deg, #ffffff 0%, #f8fafc 45%, #edf2f7 100%);
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  background: linear-gradient(155deg, #f8f9fa 0%, #f2f4f7 50%, #e9ecef 100%);
+  border: 1px solid #d0d5dd;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.05), 0 4px 12px rgba(16, 24, 40, 0.04);
   color: var(--color-light-text);
 }
 
 [data-theme="light"] .card-dark:hover {
-  background: linear-gradient(155deg, #ffffff 0%, #f1f5f9 45%, #e2e8f0 100%);
-  border-color: #cbd5e1;
-  box-shadow: 0 14px 30px -4px rgba(15, 23, 42, 0.09), inset 0 1px 0 rgba(255, 255, 255, 1);
+  background: linear-gradient(155deg, #ffffff 0%, #f4f6f8 50%, #eaedf1 100%);
+  border-color: #98a2b3;
+  box-shadow: 0 14px 28px -4px rgba(16, 24, 40, 0.1);
 }
 
 /* --- Gradient Divider --- */

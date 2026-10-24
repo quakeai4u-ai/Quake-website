@@ -162,12 +162,14 @@ const projects = (await getCollection("projects")).sort(
     margin-bottom: var(--space-xl);
   }
 
-  /* ===== LIGHT MODE FOR WORK PAGE ===== */
+  /* ===== LIGHT MODE FOR WORK PAGE (ASH PALETTE) ===== */
   :global([data-theme="light"]) .page-hero {
     background:
-      radial-gradient(ellipse 90% 70% at 20% 10%, rgba(255, 125, 45, 0.38), transparent 60%),
-      radial-gradient(ellipse 80% 65% at 80% 90%, rgba(192, 132, 252, 0.4), transparent 60%),
-      linear-gradient(150deg, #fff3ea 0%, #fdf2f8 40%, #f3e8ff 100%);
+      radial-gradient(ellipse 90% 70% at 20% 10%, rgba(255, 125, 45, 0.28), transparent 60%),
+      radial-gradient(ellipse 80% 65% at 80% 90%, rgba(192, 132, 252, 0.3), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 50% 50%, rgba(56, 189, 248, 0.2), transparent 50%),
+      linear-gradient(150deg, #e5e8ed 0%, #ebe6ed 35%, #e1e7f0 70%, #ede8e3 100%);
+    border-bottom: 1px solid #d0d5dd;
   }
 
   :global([data-theme="light"]) .page-hero-bg {
@@ -175,26 +177,26 @@ const projects = (await getCollection("projects")).sort(
   }
 
   :global([data-theme="light"]) .page-hero h1 {
-    color: #0f172a;
+    color: #101828;
   }
 
   :global([data-theme="light"]) .page-hero-desc {
-    color: #334155;
+    color: #475467;
   }
 
   :global([data-theme="light"]) section:nth-of-type(2) {
     background:
-      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(168, 85, 247, 0.12), transparent 70%),
-      linear-gradient(180deg, #ffffff 0%, #faf8ff 50%, #f8f6ff 100%);
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(168, 85, 247, 0.08), transparent 70%),
+      linear-gradient(180deg, #eaecf0 0%, #f0f2f5 50%, #e6e9ee 100%);
   }
 
   :global([data-theme="light"]) .cta-gradient {
     background:
       radial-gradient(ellipse 80% 70% at 20% 0%, rgba(255, 107, 0, 0.38), transparent 60%),
       radial-gradient(ellipse 80% 70% at 80% 100%, rgba(217, 70, 239, 0.38), transparent 60%),
-      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(56, 189, 248, 0.28), transparent 55%),
-      linear-gradient(135deg, #ffedd5 0%, #fce7f3 35%, #ede9fe 70%, #e0f2fe 100%);
-    border-top: 1px solid rgba(255, 107, 0, 0.25);
+      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(56, 189, 248, 0.26), transparent 55%),
+      linear-gradient(135deg, #eee3db 0%, #ebdfe7 35%, #dedfe8 70%, #dae2e8 100%);
+    border-top: 1px solid rgba(255, 107, 0, 0.3);
   }
 
   :global([data-theme="light"]) .cta-glow {
@@ -202,10 +204,10 @@ const projects = (await getCollection("projects")).sort(
   }
 
   :global([data-theme="light"]) .cta-content h2 {
-    color: #0f172a;
+    color: #101828;
   }
 
   :global([data-theme="light"]) .cta-content p {
-    color: #475569;
+    color: #475467;
   }
 </style>

@@ -425,12 +425,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     }
   }
 
-  /* ===== LIGHT MODE FOR SERVICES PAGE ===== */
+  /* ===== LIGHT MODE FOR SERVICES PAGE (ASH PALETTE) ===== */
   :global([data-theme="light"]) .page-hero {
     background:
-      radial-gradient(ellipse 90% 70% at 20% 10%, rgba(255, 125, 45, 0.38), transparent 60%),
-      radial-gradient(ellipse 80% 65% at 80% 90%, rgba(192, 132, 252, 0.4), transparent 60%),
-      linear-gradient(150deg, #fff3ea 0%, #fdf2f8 40%, #f3e8ff 100%);
+      radial-gradient(ellipse 90% 70% at 20% 10%, rgba(255, 125, 45, 0.28), transparent 60%),
+      radial-gradient(ellipse 80% 65% at 80% 90%, rgba(192, 132, 252, 0.3), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 50% 50%, rgba(56, 189, 248, 0.2), transparent 50%),
+      linear-gradient(150deg, #e5e8ed 0%, #ebe6ed 35%, #e1e7f0 70%, #ede8e3 100%);
+    border-bottom: 1px solid #d0d5dd;
   }
 
   :global([data-theme="light"]) .page-hero-bg {
@@ -438,80 +440,98 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   }
 
   :global([data-theme="light"]) .page-hero h1 {
-    color: #0f172a;
+    color: #101828;
   }
 
   :global([data-theme="light"]) .page-hero-desc {
-    color: #334155;
+    color: #475467;
   }
 
-  /* Vibrant Service Details in Light Mode */
+  /* Vibrant Service Details in Ash Light Mode */
   :global([data-theme="light"]) .service-detail:nth-child(1) {
-    background: linear-gradient(155deg, #ffffff 0%, #eff6ff 60%, #e0e7ff 100%);
-    border: 1px solid rgba(99, 102, 241, 0.22);
+    background: linear-gradient(155deg, #f7f9fd 0%, #edf2fc 60%, #e2e8f7 100%);
+    border: 1px solid rgba(99, 102, 241, 0.28);
     border-radius: var(--radius-xl);
     padding: clamp(1.5rem, 3vw, 2.5rem);
-    box-shadow: 0 4px 20px -2px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 4px 20px -2px rgba(99, 102, 241, 0.12);
   }
 
   :global([data-theme="light"]) .service-detail:nth-child(2) {
-    background: linear-gradient(155deg, #ffffff 0%, #fff7ed 60%, #ffedd5 100%);
-    border: 1px solid rgba(245, 158, 11, 0.25);
+    background: linear-gradient(155deg, #fbf8f5 0%, #f8ede3 60%, #f2e2d2 100%);
+    border: 1px solid rgba(245, 158, 11, 0.3);
     border-radius: var(--radius-xl);
     padding: clamp(1.5rem, 3vw, 2.5rem);
-    box-shadow: 0 4px 20px -2px rgba(245, 158, 11, 0.1);
+    box-shadow: 0 4px 20px -2px rgba(245, 158, 11, 0.12);
   }
 
   :global([data-theme="light"]) .service-detail:nth-child(3) {
-    background: linear-gradient(155deg, #ffffff 0%, #f0fdf4 60%, #dcfce7 100%);
-    border: 1px solid rgba(16, 185, 129, 0.25);
+    background: linear-gradient(155deg, #f5faf7 0%, #e8f5ec 60%, #d8ede0 100%);
+    border: 1px solid rgba(16, 185, 129, 0.3);
     border-radius: var(--radius-xl);
     padding: clamp(1.5rem, 3vw, 2.5rem);
-    box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.1);
+    box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.12);
   }
 
-  /* Vibrant Process Section in Light Mode */
+  :global([data-theme="light"]) .service-detail h2 {
+    color: #101828;
+  }
+
+  :global([data-theme="light"]) .service-detail p {
+    color: #475467;
+  }
+
+  :global([data-theme="light"]) .feature {
+    color: #344054;
+  }
+
+  /* Vibrant Process Section in Ash Light Mode */
   :global([data-theme="light"]) .section-dark {
     background:
-      radial-gradient(ellipse 70% 60% at 85% 15%, rgba(192, 132, 252, 0.3), transparent 60%),
-      radial-gradient(ellipse 70% 60% at 15% 85%, rgba(56, 189, 248, 0.28), transparent 60%),
-      linear-gradient(160deg, #f5f3ff 0%, #fae8ff 50%, #eff6ff 100%);
-    color: #0f172a;
-    border-top: 1px solid rgba(168, 85, 247, 0.2);
-    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+      radial-gradient(ellipse 70% 60% at 85% 15%, rgba(192, 132, 252, 0.28), transparent 60%),
+      radial-gradient(ellipse 70% 60% at 15% 85%, rgba(56, 189, 248, 0.24), transparent 60%),
+      linear-gradient(160deg, #e4e7ee 0%, #eae3ed 50%, #dfe5ee 100%);
+    color: #101828;
+    border-top: 1px solid #d0d5dd;
+    border-bottom: 1px solid #d0d5dd;
   }
 
   :global([data-theme="light"]) .section-dark h2 {
-    color: #0f172a;
+    color: #101828;
   }
 
   :global([data-theme="light"]) .section-label-dark {
-    color: #8b5cf6;
+    color: #7c3aed;
     font-weight: 700;
   }
 
   :global([data-theme="light"]) .process-step {
-    background: #ffffff;
-    border: 1px solid rgba(168, 85, 247, 0.2);
+    background: linear-gradient(155deg, #f8f9fa 0%, #f2f4f7 50%, #e9ecef 100%);
+    border: 1px solid #d0d5dd;
     border-radius: var(--radius-lg);
-    box-shadow: 0 4px 20px -2px rgba(168, 85, 247, 0.12), inset 0 1px 0 #ffffff;
+    box-shadow: 0 4px 16px -2px rgba(16, 24, 40, 0.06);
+  }
+
+  :global([data-theme="light"]) .process-step:hover {
+    background: linear-gradient(155deg, #ffffff 0%, #f4f6f8 50%, #eaedf1 100%);
+    border-color: #98a2b3;
+    box-shadow: 0 12px 24px -4px rgba(16, 24, 40, 0.1);
   }
 
   :global([data-theme="light"]) .process-step h3 {
-    color: #0f172a;
+    color: #101828;
   }
 
   :global([data-theme="light"]) .process-step p {
-    color: #475569;
+    color: #475467;
   }
 
   :global([data-theme="light"]) .cta-gradient {
     background:
       radial-gradient(ellipse 80% 70% at 20% 0%, rgba(255, 107, 0, 0.38), transparent 60%),
       radial-gradient(ellipse 80% 70% at 80% 100%, rgba(217, 70, 239, 0.38), transparent 60%),
-      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(56, 189, 248, 0.28), transparent 55%),
-      linear-gradient(135deg, #ffedd5 0%, #fce7f3 35%, #ede9fe 70%, #e0f2fe 100%);
-    border-top: 1px solid rgba(255, 107, 0, 0.25);
+      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(56, 189, 248, 0.26), transparent 55%),
+      linear-gradient(135deg, #eee3db 0%, #ebdfe7 35%, #dedfe8 70%, #dae2e8 100%);
+    border-top: 1px solid rgba(255, 107, 0, 0.3);
   }
 
   :global([data-theme="light"]) .cta-glow {
@@ -519,10 +539,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   }
 
   :global([data-theme="light"]) .cta-content h2 {
-    color: #0f172a;
+    color: #101828;
   }
 
   :global([data-theme="light"]) .cta-content p {
-    color: #475569;
+    color: #475467;
   }
 </style>

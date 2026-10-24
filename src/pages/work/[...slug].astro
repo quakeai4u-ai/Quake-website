@@ -270,12 +270,14 @@ const typeLabels: Record<string, string> = {
     text-decoration: none;
   }
 
-  /* ===== LIGHT MODE FOR CASE STUDY HERO ===== */
+  /* ===== LIGHT MODE FOR CASE STUDY HERO (ASH PALETTE) ===== */
   :global([data-theme="light"]) .project-hero {
     background:
-      radial-gradient(ellipse 90% 70% at 20% 10%, rgba(255, 125, 45, 0.38), transparent 60%),
-      radial-gradient(ellipse 80% 65% at 80% 90%, rgba(192, 132, 252, 0.4), transparent 60%),
-      linear-gradient(150deg, #fff3ea 0%, #fdf2f8 40%, #f3e8ff 100%);
+      radial-gradient(ellipse 90% 70% at 20% 10%, rgba(255, 125, 45, 0.28), transparent 60%),
+      radial-gradient(ellipse 80% 65% at 80% 90%, rgba(192, 132, 252, 0.3), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 50% 50%, rgba(56, 189, 248, 0.2), transparent 50%),
+      linear-gradient(150deg, #e5e8ed 0%, #ebe6ed 35%, #e1e7f0 70%, #ede8e3 100%);
+    border-bottom: 1px solid #d0d5dd;
   }
 
   :global([data-theme="light"]) .project-hero-bg {
@@ -283,15 +285,15 @@ const typeLabels: Record<string, string> = {
   }
 
   :global([data-theme="light"]) .project-hero h1 {
-    color: #0f172a;
+    color: #101828;
   }
 
   :global([data-theme="light"]) .project-desc {
-    color: #334155;
+    color: #475467;
   }
 
   :global([data-theme="light"]) .back-link {
-    color: #64748b;
+    color: #475467;
   }
 
   :global([data-theme="light"]) .back-link:hover {
@@ -299,10 +301,10 @@ const typeLabels: Record<string, string> = {
   }
 
   :global([data-theme="light"]) .meta-badge {
-    background: rgba(255, 255, 255, 0.9);
-    border-color: rgba(168, 85, 247, 0.25);
-    color: #1e293b;
-    box-shadow: 0 2px 8px rgba(168, 85, 247, 0.08);
+    background: #f2f4f7;
+    border-color: #d0d5dd;
+    color: #101828;
+    box-shadow: 0 1px 3px rgba(16, 24, 40, 0.05);
   }
 
   :global([data-theme="light"]) .tag-dark {
@@ -310,5 +312,40 @@ const typeLabels: Record<string, string> = {
     color: #4f46e5;
     border-color: rgba(99, 102, 241, 0.22);
     font-weight: 600;
+  }
+
+  :global([data-theme="light"]) .project-content :global(h2),
+  :global([data-theme="light"]) .project-content :global(h3) {
+    color: #101828;
+  }
+
+  :global([data-theme="light"]) .project-content :global(p),
+  :global([data-theme="light"]) .project-content :global(ul),
+  :global([data-theme="light"]) .project-content :global(ol) {
+    color: #475467;
+  }
+
+  :global([data-theme="light"]) .project-content :global(strong) {
+    color: #101828;
+  }
+
+  :global([data-theme="light"]) .project-content :global(code) {
+    background: #f2f4f7;
+    border-color: #d0d5dd;
+    color: #101828;
+  }
+
+  :global([data-theme="light"]) .project-content :global(blockquote) {
+    background: #f2f4f7;
+    border-left-color: #6366f1;
+    color: #344054;
+  }
+
+  :global([data-theme="light"]) .back-link-bottom {
+    color: #475467;
+  }
+
+  :global([data-theme="light"]) .back-link-bottom:hover {
+    color: #6366f1;
   }
 </style>
