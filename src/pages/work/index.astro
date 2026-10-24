@@ -96,8 +96,8 @@ const projects = (await getCollection("projects")).sort(
 
   .page-hero-desc {
     color: var(--color-dark-text-muted);
-    font-size: 1.125rem;
-    max-width: 32rem;
+    font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+    max-width: clamp(34rem, 50vw, 48rem);
     line-height: 1.7;
   }
 
@@ -113,8 +113,8 @@ const projects = (await getCollection("projects")).sort(
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(clamp(20rem, 28vw, 28rem), 1fr));
+    gap: clamp(1.25rem, 2.5vw, 2.25rem);
   }
 
   .empty-state {
@@ -150,7 +150,7 @@ const projects = (await getCollection("projects")).sort(
   .cta-content {
     position: relative;
     text-align: center;
-    max-width: 32rem;
+    max-width: clamp(34rem, 50vw, 48rem);
     margin: 0 auto;
   }
 

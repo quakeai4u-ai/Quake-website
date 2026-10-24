@@ -33,7 +33,7 @@ const featuredProjects = allProjects
       <div class="grid-overlay"></div>
     </div>
 
-    <div class="container hero-content">
+    <div class="container container-wide hero-content">
       <div class="hero-grid">
         <div class="hero-left">
           <div class="hero-badge animate-fade-in-up">
@@ -377,9 +377,10 @@ const featuredProjects = allProjects
 
   .hero-title {
     color: #ffffff;
-    max-width: 48rem;
+    max-width: 58rem;
     margin-bottom: var(--space-lg);
     line-height: 1.1;
+    font-size: clamp(2.35rem, 5.2vw, 4.25rem);
     text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
   }
 
@@ -393,8 +394,8 @@ const featuredProjects = allProjects
   }
 
   .hero-subtitle {
-    max-width: 36rem;
-    font-size: 1.125rem;
+    max-width: 44rem;
+    font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
     color: rgba(255, 255, 255, 0.88);
     line-height: 1.7;
     margin-bottom: var(--space-2xl);
@@ -442,7 +443,7 @@ const featuredProjects = allProjects
   .hero-grid {
     display: grid;
     grid-template-columns: 1.15fr 1fr;
-    gap: var(--space-3xl);
+    gap: clamp(2rem, 5vw, 5rem);
     align-items: center;
     position: relative;
     z-index: 2;
@@ -464,10 +465,29 @@ const featuredProjects = allProjects
   .hero-visual {
     position: relative;
     width: 100%;
-    max-width: 36rem;
+    max-width: clamp(28rem, 48vw, 48rem);
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  /* Wide screens: give the devices showcase expansive room */
+  @media (min-width: 1440px) {
+    .hero-visual {
+      max-width: 52rem;
+    }
+    .hero-title {
+      max-width: 62rem;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .hero-visual {
+      max-width: 58rem;
+    }
+    .hero-title {
+      max-width: 68rem;
+    }
   }
 
   /* Multi-colour artwork halo behind screens */
@@ -510,12 +530,28 @@ const featuredProjects = allProjects
 
     .hero-right {
       order: 2;
-      margin-top: var(--space-lg);
+      margin-top: var(--space-md);
     }
 
     .hero-visual {
-      max-width: 30rem;
+      max-width: clamp(22rem, 85vw, 36rem);
       margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 6.5rem 0 3.5rem;
+      min-height: auto;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
     }
   }
 
@@ -541,8 +577,8 @@ const featuredProjects = allProjects
 
   .section-desc {
     color: var(--color-light-text-muted);
-    font-size: 1.0625rem;
-    max-width: 32rem;
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    max-width: clamp(34rem, 52vw, 48rem);
     margin-top: var(--space-md);
     line-height: 1.7;
   }
@@ -570,8 +606,8 @@ const featuredProjects = allProjects
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(clamp(18rem, 24vw, 24rem), 1fr));
+    gap: clamp(1.25rem, 2.5vw, 2.25rem);
   }
 
   .service-card {
@@ -645,8 +681,8 @@ const featuredProjects = allProjects
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(clamp(20rem, 28vw, 28rem), 1fr));
+    gap: clamp(1.25rem, 2.5vw, 2.25rem);
   }
 
   /* ===== CTA GRADIENT ===== */
@@ -678,7 +714,7 @@ const featuredProjects = allProjects
   .cta-content {
     position: relative;
     text-align: center;
-    max-width: 36rem;
+    max-width: clamp(34rem, 50vw, 48rem);
     margin: 0 auto;
   }
 
