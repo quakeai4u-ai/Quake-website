@@ -179,10 +179,21 @@ const currentYear = new Date().getFullYear();
   }
 
   /* ===== LIGHT MODE FOOTER ===== */
+  :global([data-theme="light"]) .gradient-divider {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 106, 0, 0.45) 20%,
+      rgba(236, 72, 153, 0.45) 50%,
+      rgba(139, 92, 246, 0.45) 80%,
+      transparent
+    );
+  }
+
   :global([data-theme="light"]) .footer {
-    background-color: #f8fafc;
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
     color: #64748b;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid rgba(139, 92, 246, 0.12);
   }
 
   :global([data-theme="light"]) .footer-brand {
