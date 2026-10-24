@@ -1,0 +1,58 @@
+---
+/*
+  Scroll Reveal Component
+  =======================
+  Safely animates elements with .reveal into view when scrolled.
+  Works reliably with standard MPA page loads and View Transitions.
+*/
+---
+
+<script>
+  function initScrollReveal() {
+    const reveals = document.querySelectorAll(".reveal");
+
+    if (reveals.length === 0) return;
+
+    if (!("IntersectionObserver" in window)) {
+      // Fallback for older browsers or if observer isn't available
+      reveals.forEach((el) => el.classList.add("visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.05,
+        rootMargin: "0px 0px -20px 0px",
+      }
+    );
+
+    reveals.forEach((el) => {
+      // If already in viewport on load, show immediately
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add("visible");
+      } else {
+        observer.observe(el);
+      }
+    });
+  }
+
+  // Run immediately if DOM is ready, or listen to DOMContentLoaded
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initScrollReveal);
+  } else {
+    initScrollReveal();
+  }
+
+  // Also support Astro page transitions if added in the future
+  document.addEventListener("astro:page-load", initScrollReveal);
+  document.addEventListener("astro:after-swap", initScrollReveal);
+</script>

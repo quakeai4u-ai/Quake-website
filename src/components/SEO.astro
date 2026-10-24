@@ -1,0 +1,62 @@
+---
+/*
+  SEO Component
+  =============
+  This component generates all the <meta> tags that help
+  search engines and social media understand your pages.
+
+  HOW TO USE:
+  In any page, add this inside the <head>:
+    <SEO title="Page Title" description="What this page is about" />
+
+  WHAT IT DOES:
+  - Sets the page title in the browser tab
+  - Tells Google what your page is about (meta description)
+  - Creates a nice preview when someone shares your link on
+    social media (Open Graph / Twitter Card tags)
+*/
+
+// These are the "inputs" this component accepts.
+// The ? means the input is optional.
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string; // Image shown in social media previews
+}
+
+// Read the inputs, with sensible defaults
+const {
+  title,
+  description,
+  ogImage = "/images/og-default.png", // TODO: Create a default social sharing image (1200x630px)
+} = Astro.props;
+
+// Build the full title: "Page Name | Quake"
+const fullTitle = title === "Home" ? "Quake — Software Development & AI Solutions" : `${title} | Quake`;
+
+// Get the full URL of the current page
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+---
+
+<!-- Page title (shows in browser tab) -->
+<title>{fullTitle}</title>
+
+<!-- Tell search engines what this page is about -->
+<meta name="description" content={description} />
+
+<!-- Canonical URL (prevents duplicate content issues) -->
+<link rel="canonical" href={canonicalURL.href} />
+
+<!-- Open Graph tags (Facebook, LinkedIn, etc.) -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL.href} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImageURL.href} />
+
+<!-- Twitter Card tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageURL.href} />

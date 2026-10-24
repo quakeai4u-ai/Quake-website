@@ -1,0 +1,350 @@
+---
+/*
+  ABOUT PAGE — Premium Version
+*/
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="About"
+  description="Learn about Quake — a software development and AI company helping small businesses build better technology."
+>
+  <!-- Page Header -->
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="container page-hero-content">
+      <span class="section-label animate-fade-in-up">About Us</span>
+      <h1 class="animate-fade-in-up delay-100">
+        Built on honesty,<br />
+        <span class="gradient-text">driven by craft</span>
+      </h1>
+      <p class="page-hero-desc animate-fade-in-up delay-200">
+        We're a software development and AI company based in India,
+        focused on helping small businesses build the technology
+        they need to grow.
+      </p>
+    </div>
+  </section>
+
+  <hr class="gradient-divider" />
+
+  <!-- Story -->
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-main">
+          <div class="about-block reveal">
+            <h2>Our Story</h2>
+            <p>
+              Quake was founded with a simple idea: small businesses deserve
+              the same quality of software that large companies take for granted
+              — without the enterprise price tag.
+            </p>
+            <p>
+              We specialize in building web applications and AI-powered solutions
+              that are practical, reliable, and designed to solve real problems.
+              No over-engineering, no unnecessary complexity.
+            </p>
+          </div>
+
+          <div class="about-block reveal">
+            <h2>Why Work With Us</h2>
+            <p>
+              As a focused, lean team, we offer something larger agencies can't:
+              direct communication, fast decisions, and genuine care about your
+              project's success. You'll always know who's working on your project
+              and how it's progressing.
+            </p>
+            <p>
+              We're building our reputation one project at a time, which means
+              every client matters. Your success is our best marketing.
+            </p>
+          </div>
+        </div>
+
+        <aside class="values-sidebar reveal">
+          <h3>What We Believe</h3>
+          <div class="values-list">
+            <div class="value-item">
+              <div class="value-icon value-icon-blue">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Honesty over hype</strong>
+                <p>We'll tell you what technology can realistically do — and what it can't.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon value-icon-amber">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Simplicity over complexity</strong>
+                <p>The best solution is often the simplest one that actually works.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon value-icon-emerald">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <path d="M22 4L12 14.01l-3-3"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Results over features</strong>
+                <p>Success is measured by whether the software helps your business grow.</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-gradient">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="container cta-content reveal">
+      <h2>Let's work together</h2>
+      <p>Have a project idea? We'd love to hear about it.</p>
+      <a href="/contact/" class="btn btn-primary-dark">
+        Get in Touch
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ===== PAGE HERO ===== */
+  .page-hero {
+    position: relative;
+    background: var(--color-dark-bg);
+    padding: 8rem 0 4rem;
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 0%, rgba(99, 102, 241, 0.15), transparent 60%),
+      radial-gradient(ellipse at 70% 100%, rgba(139, 92, 246, 0.1), transparent 60%);
+  }
+
+  .page-hero-content { position: relative; }
+  .page-hero h1 { color: #ffffff; margin-bottom: var(--space-lg); }
+
+  .page-hero-desc {
+    color: var(--color-dark-text-muted);
+    font-size: 1.125rem;
+    max-width: 32rem;
+    line-height: 1.7;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent-1);
+    margin-bottom: var(--space-md);
+  }
+
+  /* ===== ABOUT GRID ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 22rem;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .about-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xl);
+  }
+
+  .about-block h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .about-block p {
+    color: var(--color-light-text-muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+
+  .about-block p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ===== VALUES SIDEBAR ===== */
+  .values-sidebar {
+    padding: var(--space-xl);
+    background: linear-gradient(155deg, #ffffff 0%, #f8fafc 45%, #edf2f7 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    position: sticky;
+    top: 6rem;
+  }
+
+  .values-sidebar h3 {
+    margin-bottom: var(--space-lg);
+    font-size: 1.125rem;
+  }
+
+  .values-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .value-item {
+    display: flex;
+    gap: var(--space-md);
+    align-items: flex-start;
+  }
+
+  .value-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-md);
+  }
+
+  .value-icon-blue {
+    background: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
+    border: 1px solid rgba(99, 102, 241, 0.15);
+  }
+
+  .value-icon-amber {
+    background: rgba(245, 158, 11, 0.12);
+    color: #d97706;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
+
+  .value-icon-emerald {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
+  .value-item strong {
+    display: block;
+    font-size: 0.9375rem;
+    margin-bottom: var(--space-xs);
+    color: var(--color-light-text);
+  }
+
+  .value-item p {
+    font-size: 0.8125rem;
+    color: var(--color-light-text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ===== CTA ===== */
+  .cta-gradient {
+    background: linear-gradient(
+      145deg,
+      #0b0f1a 0%,
+      #131826 40%,
+      #16192e 70%,
+      #0b0f1a 100%
+    );
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-glow {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30rem;
+    height: 30rem;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.14) 0%, rgba(245, 158, 11, 0.06) 50%, transparent 75%);
+    pointer-events: none;
+  }
+
+  .cta-content {
+    position: relative;
+    text-align: center;
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 { color: #ffffff; margin-bottom: var(--space-md); }
+
+  .cta-content p {
+    color: var(--color-dark-text-muted);
+    font-size: 1.0625rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+    .values-sidebar {
+      position: static;
+    }
+  }
+
+  /* ===== LIGHT MODE FOR ABOUT PAGE ===== */
+  :global([data-theme="light"]) .page-hero {
+    background: linear-gradient(150deg, #fff7ed 0%, #fdf4ff 40%, #f0f9ff 100%);
+  }
+
+  :global([data-theme="light"]) .page-hero-bg {
+    background:
+      radial-gradient(ellipse at 25% 10%, rgba(255, 140, 66, 0.22), transparent 55%),
+      radial-gradient(ellipse at 75% 90%, rgba(192, 132, 252, 0.22), transparent 55%);
+  }
+
+  :global([data-theme="light"]) .page-hero h1 {
+    color: #0f172a;
+  }
+
+  :global([data-theme="light"]) .page-hero-desc {
+    color: #475569;
+  }
+
+  :global([data-theme="light"]) .cta-gradient {
+    background: linear-gradient(
+      135deg,
+      #fff7ed 0%,
+      #fdf2f8 35%,
+      #eff6ff 70%,
+      #f8fafc 100%
+    );
+    border-top: 1px solid #e2e8f0;
+  }
+
+  :global([data-theme="light"]) .cta-glow {
+    background: radial-gradient(circle, rgba(255, 140, 66, 0.22) 0%, rgba(192, 132, 252, 0.2) 50%, transparent 75%);
+  }
+
+  :global([data-theme="light"]) .cta-content h2 {
+    color: #0f172a;
+  }
+
+  :global([data-theme="light"]) .cta-content p {
+    color: #475569;
+  }
+</style>

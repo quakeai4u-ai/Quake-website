@@ -1,0 +1,57 @@
+---
+/*
+  Base Layout — Premium Version
+  =============================
+  Updated with Inter font, scroll reveal, and better meta tags.
+*/
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SEO from "../components/SEO.astro";
+import ScrollReveal from "../components/ScrollReveal.astro";
+
+// Import Inter variable font (all weights in one file)
+import "@fontsource-variable/inter";
+
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+
+const { title, description, ogImage } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0f1a" id="meta-theme-color" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <SEO title={title} description={description} ogImage={ogImage} />
+    <script is:inline>
+      // Immediately apply theme on initial load to avoid flash
+      (function() {
+        const stored = localStorage.getItem('quake-theme');
+        const theme = stored ? stored : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        const metaTheme = document.getElementById('meta-theme-color');
+        if (metaTheme) {
+          metaTheme.setAttribute('content', theme === 'light' ? '#ffffff' : '#0b0f1a');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+    <Header />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+    <ScrollReveal />
+  </body>
+</html>

@@ -1,0 +1,240 @@
+---
+/*
+  CONTACT PAGE — Premium Version
+*/
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with Quake. Tell us about your project and we'll get back to you."
+>
+  <!-- Page Header -->
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="container page-hero-content">
+      <span class="section-label animate-fade-in-up">Contact</span>
+      <h1 class="animate-fade-in-up delay-100">
+        Let's build<br />
+        <span class="gradient-text">something together</span>
+      </h1>
+      <p class="page-hero-desc animate-fade-in-up delay-200">
+        Have a project in mind? Fill out the form and we'll get
+        back to you within 24 hours.
+      </p>
+    </div>
+  </section>
+
+  <hr class="gradient-divider" />
+
+  <section class="section">
+    <div class="container contact-layout">
+
+      <!-- Form -->
+      <div class="contact-form-wrapper reveal">
+        <h2>Send us a message</h2>
+        <p class="form-intro">Tell us about your project, timeline, and budget. The more detail, the better we can help.</p>
+        <ContactForm />
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="contact-sidebar">
+        <div class="contact-card reveal">
+          <div class="contact-card-icon contact-card-icon-blue">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <path d="M22 6l-10 7L2 6"/>
+            </svg>
+          </div>
+          <h4>Email</h4>
+          <a href="mailto:quakeai4u@gmail.com">quakeai4u@gmail.com</a>
+        </div>
+
+        <div class="contact-card reveal">
+          <div class="contact-card-icon contact-card-icon-amber">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h4>Response Time</h4>
+          <p>We typically respond within 24 hours on business days.</p>
+        </div>
+
+        <div class="contact-card reveal">
+          <div class="contact-card-icon contact-card-icon-emerald">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h4>Location</h4>
+          <p>Based in India.<br />Available for remote work worldwide.</p>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ===== PAGE HERO ===== */
+  .page-hero {
+    position: relative;
+    background: var(--color-dark-bg);
+    padding: 8rem 0 4rem;
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 0%, rgba(99, 102, 241, 0.15), transparent 60%),
+      radial-gradient(ellipse at 70% 100%, rgba(139, 92, 246, 0.1), transparent 60%);
+  }
+
+  .page-hero-content { position: relative; }
+  .page-hero h1 { color: #ffffff; margin-bottom: var(--space-lg); }
+
+  .page-hero-desc {
+    color: var(--color-dark-text-muted);
+    font-size: 1.125rem;
+    max-width: 32rem;
+    line-height: 1.7;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent-1);
+    margin-bottom: var(--space-md);
+  }
+
+  /* ===== CONTACT LAYOUT ===== */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 20rem;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .contact-form-wrapper h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .form-intro {
+    color: var(--color-light-text-muted);
+    margin-bottom: var(--space-xl);
+    font-size: 0.9375rem;
+  }
+
+  /* ===== SIDEBAR CARDS ===== */
+  .contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    position: sticky;
+    top: 6rem;
+  }
+
+  .contact-card {
+    padding: var(--space-lg);
+    background: linear-gradient(155deg, #ffffff 0%, #f8fafc 45%, #edf2f7 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition: all var(--transition-base);
+  }
+
+  .contact-card:hover {
+    background: linear-gradient(155deg, #ffffff 0%, #f1f5f9 45%, #e2e8f0 100%);
+    border-color: #cbd5e1;
+    box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+  }
+
+  .contact-card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .contact-card-icon-blue {
+    background: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
+    border: 1px solid rgba(99, 102, 241, 0.15);
+  }
+
+  .contact-card-icon-amber {
+    background: rgba(245, 158, 11, 0.12);
+    color: #d97706;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
+
+  .contact-card-icon-emerald {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
+  .contact-card h4 {
+    font-size: 0.9375rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .contact-card p,
+  .contact-card a {
+    color: var(--color-light-text-muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .contact-card a:hover {
+    color: var(--color-accent-1);
+  }
+
+  @media (max-width: 768px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+    }
+    .contact-sidebar {
+      position: static;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .contact-card {
+      flex: 1;
+      min-width: 12rem;
+    }
+  }
+
+  /* ===== LIGHT MODE FOR CONTACT PAGE ===== */
+  :global([data-theme="light"]) .page-hero {
+    background: linear-gradient(150deg, #fff7ed 0%, #fdf4ff 40%, #f0f9ff 100%);
+  }
+
+  :global([data-theme="light"]) .page-hero-bg {
+    background:
+      radial-gradient(ellipse at 25% 10%, rgba(255, 140, 66, 0.22), transparent 55%),
+      radial-gradient(ellipse at 75% 90%, rgba(192, 132, 252, 0.22), transparent 55%);
+  }
+
+  :global([data-theme="light"]) .page-hero h1 {
+    color: #0f172a;
+  }
+
+  :global([data-theme="light"]) .page-hero-desc {
+    color: #475569;
+  }
+</style>

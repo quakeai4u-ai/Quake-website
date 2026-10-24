@@ -1,0 +1,491 @@
+---
+/*
+  SERVICES PAGE — Premium Version
+  ================================
+*/
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Services"
+  description="Web development, AI solutions, and e-commerce services for small businesses and startups."
+>
+  <!-- Page Header (dark) -->
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="container page-hero-content">
+      <span class="section-label animate-fade-in-up">Our Services</span>
+      <h1 class="animate-fade-in-up delay-100">
+        Technology that works<br />
+        <span class="gradient-text">for your business</span>
+      </h1>
+      <p class="page-hero-desc animate-fade-in-up delay-200">
+        We build practical, reliable software. No over-engineering,
+        no unnecessary complexity — just solutions that deliver value.
+      </p>
+    </div>
+  </section>
+
+  <hr class="gradient-divider" />
+
+  <!-- Services Detail -->
+  <section class="section">
+    <div class="container">
+      <div class="services-list">
+
+        <div class="service-detail reveal">
+          <div class="service-detail-icon service-icon-blue">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <path d="M8 21h8M12 17v4" />
+            </svg>
+          </div>
+          <div class="service-detail-content">
+            <h2>Web Application Development</h2>
+            <p>
+              Custom web applications built with modern frameworks like React,
+              Next.js, and Astro. Whether you need a company website, a customer
+              portal, or an internal tool — we build it to be fast, accessible,
+              and maintainable.
+            </p>
+            <div class="feature-grid">
+              <div class="feature">
+                <span class="feature-check feature-check-blue">✓</span>
+                Responsive design for all devices
+              </div>
+              <div class="feature">
+                <span class="feature-check feature-check-blue">✓</span>
+                SEO built in from day one
+              </div>
+              <div class="feature">
+                <span class="feature-check feature-check-blue">✓</span>
+                Accessibility best practices
+              </div>
+              <div class="feature">
+                <span class="feature-check feature-check-blue">✓</span>
+                Clean, documented, maintainable code
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-detail reveal">
+          <div class="service-detail-icon service-icon-amber">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.4V11h2a4 4 0 0 1 4 4v1h-4" />
+              <path d="M8 16H4v-1a4 4 0 0 1 4-4h2V9.4A4 4 0 1 1 12 2" />
+              <circle cx="12" cy="18" r="4" />
+            </svg>
+          </div>
+          <div class="service-detail-content">
+            <h2>AI & Automation Solutions</h2>
+            <p>
+              Practical AI integrations that save time and add value. We help
+              you identify where AI can genuinely improve your workflows — and
+              build solutions that actually work in production, not just demos.
+            </p>
+            <div class="feature-grid">
+              <div class="feature">
+                <span class="feature-check feature-check-amber">✓</span>
+                AI-powered features for your apps
+              </div>
+              <div class="feature">
+                <span class="feature-check feature-check-amber">✓</span>
+                Workflow automation
+              </div>
+              <div class="feature">
+                <span class="feature-check feature-check-amber">✓</span>
+                AI service & API integration
+              </div>
+              <div class="feature">
+                <span class="feature-check feature-check-amber">✓</span>
+                Honest assessment of what AI can do
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-detail reveal">
+          <div class="service-detail-icon service-icon-emerald">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+          </div>
+          <div class="service-detail-content">
+            <h2>E-Commerce Development</h2>
+            <p>
+              Online stores and product platforms that help you sell effectively.
+              From product catalogs to checkout flows, we handle the technical
+              complexity so you can focus on your products.
+            </p>
+            <div class="feature-grid">
+              <div class="feature">
+                <span class="feature-check feature-check-emerald">✓</span>
+                Product catalog with search & filtering
+              </div>
+              <div class="feature">
+                <span class="feature-check feature-check-emerald">✓</span>
+                Shopping cart & checkout flow
+              </div>
+              <div class="feature">
+                <span class="feature-check feature-check-emerald">✓</span>
+                Mobile-friendly design
+              </div>
+              <div class="feature">
+                <span class="feature-check feature-check-emerald">✓</span>
+                Payment gateway integration
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label section-label-dark">Our Process</span>
+        <h2>Simple, transparent,<br />and collaborative</h2>
+      </div>
+
+      <div class="process-grid reveal-stagger">
+        <div class="process-step card-dark reveal">
+          <span class="step-number">01</span>
+          <h3>Conversation</h3>
+          <p>We discuss your needs, timeline, and budget. No jargon, no pressure.</p>
+        </div>
+        <div class="process-step card-dark reveal">
+          <span class="step-number">02</span>
+          <h3>Proposal</h3>
+          <p>Clear scope, timeline, and cost before any work begins.</p>
+        </div>
+        <div class="process-step card-dark reveal">
+          <span class="step-number">03</span>
+          <h3>Build</h3>
+          <p>Iterative development with regular updates. You're never in the dark.</p>
+        </div>
+        <div class="process-step card-dark reveal">
+          <span class="step-number">04</span>
+          <h3>Launch</h3>
+          <p>We help you launch and provide support to keep things running.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-gradient">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="container cta-content reveal">
+      <h2>Ready to discuss your project?</h2>
+      <p>Tell us what you're building. We'll let you know how we can help.</p>
+      <a href="/contact/" class="btn btn-primary-dark">
+        Get in Touch
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ===== PAGE HERO ===== */
+
+  .page-hero {
+    position: relative;
+    background: var(--color-dark-bg);
+    padding: 8rem 0 4rem;
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 0%, rgba(99, 102, 241, 0.15), transparent 60%),
+      radial-gradient(ellipse at 70% 100%, rgba(139, 92, 246, 0.1), transparent 60%);
+  }
+
+  .page-hero-content {
+    position: relative;
+  }
+
+  .page-hero h1 {
+    color: #ffffff;
+    margin-bottom: var(--space-lg);
+  }
+
+  .page-hero-desc {
+    color: var(--color-dark-text-muted);
+    font-size: 1.125rem;
+    max-width: 32rem;
+    line-height: 1.7;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent-1);
+    margin-bottom: var(--space-md);
+  }
+
+  .section-label-dark {
+    color: var(--color-accent-2);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-3xl);
+  }
+
+  /* ===== SERVICES LIST ===== */
+
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4xl);
+  }
+
+  .service-detail {
+    display: flex;
+    gap: var(--space-xl);
+    align-items: flex-start;
+  }
+
+  .service-detail-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .service-icon-blue {
+    background: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
+    border: 1px solid rgba(99, 102, 241, 0.15);
+  }
+
+  .service-icon-amber {
+    background: rgba(245, 158, 11, 0.12);
+    color: #d97706;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
+
+  .service-icon-emerald {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
+  .service-detail-content {
+    max-width: 36rem;
+  }
+
+  .service-detail h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .service-detail p {
+    color: var(--color-light-text-muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-lg);
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm) var(--space-xl);
+  }
+
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.9375rem;
+    color: var(--color-light-text-muted);
+  }
+
+  .feature-check {
+    font-weight: 700;
+  }
+
+  .feature-check-blue { color: #6366f1; }
+  .feature-check-amber { color: #d97706; }
+  .feature-check-emerald { color: #059669; }
+
+  /* ===== PROCESS ===== */
+
+  .section-dark {
+    background: var(--color-dark-bg);
+    color: var(--color-dark-text);
+  }
+
+  .section-dark h2 {
+    color: #ffffff;
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .process-step {
+    padding: var(--space-xl);
+  }
+
+  .step-number {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    font-family: var(--font-heading);
+  }
+
+  .process-step:nth-child(1) .step-number { color: #818cf8; }
+  .process-step:nth-child(2) .step-number { color: #a78bfa; }
+  .process-step:nth-child(3) .step-number { color: #fbbf24; }
+  .process-step:nth-child(4) .step-number { color: #34d399; }
+
+  .process-step h3 {
+    color: #ffffff;
+    margin-bottom: var(--space-sm);
+  }
+
+  .process-step p {
+    color: var(--color-dark-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* ===== CTA ===== */
+
+  .cta-gradient {
+    background: linear-gradient(
+      145deg,
+      #0b0f1a 0%,
+      #131826 40%,
+      #16192e 70%,
+      #0b0f1a 100%
+    );
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-glow {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30rem;
+    height: 30rem;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.14) 0%, rgba(245, 158, 11, 0.06) 50%, transparent 75%);
+    pointer-events: none;
+  }
+
+  .cta-content {
+    position: relative;
+    text-align: center;
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    color: #ffffff;
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-content p {
+    color: var(--color-dark-text-muted);
+    font-size: 1.0625rem;
+    margin-bottom: var(--space-xl);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 640px) {
+    .service-detail {
+      flex-direction: column;
+    }
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ===== LIGHT MODE FOR SERVICES PAGE ===== */
+  :global([data-theme="light"]) .page-hero {
+    background: linear-gradient(150deg, #fff7ed 0%, #fdf4ff 40%, #f0f9ff 100%);
+  }
+
+  :global([data-theme="light"]) .page-hero-bg {
+    background:
+      radial-gradient(ellipse at 25% 10%, rgba(255, 140, 66, 0.22), transparent 55%),
+      radial-gradient(ellipse at 75% 90%, rgba(192, 132, 252, 0.22), transparent 55%);
+  }
+
+  :global([data-theme="light"]) .page-hero h1 {
+    color: #0f172a;
+  }
+
+  :global([data-theme="light"]) .page-hero-desc {
+    color: #475569;
+  }
+
+  :global([data-theme="light"]) .section-dark {
+    background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+    color: #0f172a;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  :global([data-theme="light"]) .section-dark h2 {
+    color: #0f172a;
+  }
+
+  :global([data-theme="light"]) .section-label-dark {
+    color: var(--color-accent-1);
+  }
+
+  :global([data-theme="light"]) .process-step h3 {
+    color: #0f172a;
+  }
+
+  :global([data-theme="light"]) .process-step p {
+    color: #64748b;
+  }
+
+  :global([data-theme="light"]) .cta-gradient {
+    background: linear-gradient(
+      135deg,
+      #fff7ed 0%,
+      #fdf2f8 35%,
+      #eff6ff 70%,
+      #f8fafc 100%
+    );
+    border-top: 1px solid #e2e8f0;
+  }
+
+  :global([data-theme="light"]) .cta-glow {
+    background: radial-gradient(circle, rgba(255, 140, 66, 0.22) 0%, rgba(192, 132, 252, 0.2) 50%, transparent 75%);
+  }
+
+  :global([data-theme="light"]) .cta-content h2 {
+    color: #0f172a;
+  }
+
+  :global([data-theme="light"]) .cta-content p {
+    color: #475569;
+  }
+</style>

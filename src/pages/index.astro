@@ -1,0 +1,839 @@
+---
+/*
+  HOME PAGE — Premium Version
+  ===========================
+  Dark gradient hero with aurora effect, animated sections,
+  glass cards, and polished visual hierarchy.
+*/
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+const allProjects = await getCollection("projects");
+const featuredProjects = allProjects
+  .filter((project) => project.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Home"
+  description="Quake builds web applications and AI solutions for small businesses and startups. Based in India."
+>
+  <!-- ===== HERO — Multi-Colour Artwork Gradient ===== -->
+  <section class="hero">
+    <!-- Decorative multi-colour artwork gradient layers -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb-artwork orb-artwork-1"></div>
+      <div class="orb-artwork orb-artwork-2"></div>
+      <div class="orb-artwork orb-artwork-3"></div>
+      <div class="orb-artwork orb-artwork-4"></div>
+      <div class="orb-artwork orb-artwork-5"></div>
+      <div class="artwork-shimmer"></div>
+      <div class="grid-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="hero-badge animate-fade-in-up">
+            <span class="badge-dot"></span>
+            Software Development & AI Solutions
+          </div>
+
+          <h1 class="hero-title animate-fade-in-up delay-100">
+            We build software that<br />
+            <span class="gradient-text-artwork">powers your growth</span>
+          </h1>
+
+          <p class="hero-subtitle animate-fade-in-up delay-200">
+            Modern web applications and practical AI solutions for
+            small businesses and startups. Clean code, honest work,
+            real results.
+          </p>
+
+          <div class="hero-actions animate-fade-in-up delay-300">
+            <a href="/contact/" class="btn btn-primary-dark">
+              Start a Project
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="/work/" class="btn btn-secondary-dark">View Our Work</a>
+          </div>
+        </div>
+
+        <div class="hero-right animate-fade-in-up delay-200">
+          <div class="hero-visual">
+            <div class="visual-glow" aria-hidden="true"></div>
+            <img
+              src="/images/showcase-screens.png"
+              alt="Multi-device software showcase"
+              class="visual-img"
+              width="1024"
+              height="682"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES OVERVIEW ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">What We Do</span>
+        <h2>Solutions that solve<br />real problems</h2>
+        <p class="section-desc">
+          We focus on building practical, reliable software — not
+          chasing trends. Every project is designed to deliver real
+          value for your business.
+        </p>
+      </div>
+
+      <div class="services-grid reveal-stagger">
+        <div class="service-card card reveal">
+          <div class="service-icon service-icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <path d="M8 21h8M12 17v4" />
+            </svg>
+          </div>
+          <h3>Web Applications</h3>
+          <p>
+            Custom websites and web apps built with modern frameworks.
+            Fast, responsive, and designed for your users.
+          </p>
+        </div>
+
+        <div class="service-card card reveal">
+          <div class="service-icon service-icon-amber">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.4V11h2a4 4 0 0 1 4 4v1h-4" />
+              <path d="M8 16H4v-1a4 4 0 0 1 4-4h2V9.4A4 4 0 1 1 12 2" />
+              <circle cx="12" cy="18" r="4" />
+            </svg>
+          </div>
+          <h3>AI Solutions</h3>
+          <p>
+            Practical AI integrations that add genuine value — from
+            workflow automation to intelligent features in your apps.
+          </p>
+        </div>
+
+        <div class="service-card card reveal">
+          <div class="service-icon service-icon-emerald">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+          </div>
+          <h3>E-Commerce</h3>
+          <p>
+            Online stores that help you sell effectively. Product catalogs,
+            cart management, checkout, and payment integration.
+          </p>
+        </div>
+      </div>
+
+      <div class="section-link-wrap reveal">
+        <a href="/services/" class="section-link">
+          Explore all services
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED WORK ===== -->
+  {featuredProjects.length > 0 && (
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label section-label-dark">Selected Work</span>
+          <h2>Projects that showcase<br />our capabilities</h2>
+          <p class="section-desc">
+            Real projects built with care. Each one demonstrates
+            our technical skills and attention to detail.
+          </p>
+        </div>
+
+        <div class="projects-grid reveal-stagger">
+          {featuredProjects.map((project) => (
+            <div class="reveal">
+              <ProjectCard
+                title={project.data.title}
+                description={project.data.description}
+                slug={project.id}
+                tags={project.data.tags}
+                category={project.data.category}
+              />
+            </div>
+          ))}
+        </div>
+
+        <div class="section-link-wrap reveal">
+          <a href="/work/" class="section-link">
+            View all projects
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ===== CTA ===== -->
+  <section class="section cta-gradient">
+    <div class="container cta-content reveal">
+      <h2>Ready to build something great?</h2>
+      <p>
+        Tell us about your project. We'll figure out how
+        we can help — no pressure, no jargon.
+      </p>
+      <a href="/contact/" class="btn btn-primary-dark">
+        Start a Conversation
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ===== HERO — MULTI-COLOUR ARTWORK GRADIENT ===== */
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    /* Rich multi-colour artwork canvas: violet, coral, fuchsia, amber & cyan */
+    background:
+      radial-gradient(ellipse 90% 70% at 15% 10%, rgba(255, 94, 30, 0.45), transparent 55%),
+      radial-gradient(ellipse 80% 65% at 85% 15%, rgba(168, 85, 247, 0.5), transparent 55%),
+      radial-gradient(ellipse 70% 60% at 50% 85%, rgba(236, 72, 153, 0.4), transparent 60%),
+      radial-gradient(ellipse 65% 55% at 90% 85%, rgba(6, 182, 212, 0.35), transparent 55%),
+      radial-gradient(ellipse 60% 50% at 10% 80%, rgba(251, 191, 36, 0.35), transparent 50%),
+      linear-gradient(140deg, #180d2e 0%, #220f38 30%, #171033 60%, #0d1226 100%);
+    overflow: hidden;
+    padding: 8rem 0 5rem;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  /* Animated multi-colour artwork gradient blobs */
+  .orb-artwork {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(75px);
+    will-change: transform;
+    pointer-events: none;
+  }
+
+  /* 1. Radiant Sunset Orange / Coral (matches Q logo) */
+  .orb-artwork-1 {
+    width: 46rem;
+    height: 46rem;
+    background: radial-gradient(circle, rgba(255, 107, 0, 0.6) 0%, rgba(255, 60, 120, 0.4) 40%, transparent 70%);
+    top: -12rem;
+    left: -8rem;
+    animation: float-artwork-1 14s ease-in-out infinite alternate;
+  }
+
+  /* 2. Electric Violet / Fuchsia nebula */
+  .orb-artwork-2 {
+    width: 44rem;
+    height: 44rem;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.55) 0%, rgba(217, 70, 239, 0.35) 45%, transparent 70%);
+    top: -6rem;
+    right: -8rem;
+    animation: float-artwork-2 18s ease-in-out infinite alternate;
+  }
+
+  /* 3. Warm Golden Amber / Sunburst */
+  .orb-artwork-3 {
+    width: 36rem;
+    height: 36rem;
+    background: radial-gradient(circle, rgba(251, 191, 36, 0.45) 0%, rgba(249, 115, 22, 0.3) 45%, transparent 70%);
+    bottom: -8rem;
+    left: 15%;
+    animation: float-artwork-3 16s ease-in-out infinite alternate;
+  }
+
+  /* 4. Luminous Aqua / Turquoise / Cyan (balanced cool highlight) */
+  .orb-artwork-4 {
+    width: 38rem;
+    height: 38rem;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.45) 0%, rgba(99, 102, 241, 0.25) 45%, transparent 70%);
+    bottom: -4rem;
+    right: -5rem;
+    animation: float-artwork-4 20s ease-in-out infinite alternate;
+  }
+
+  /* 5. Vivid Rose & Royal Purple atmospheric depth */
+  .orb-artwork-5 {
+    width: 34rem;
+    height: 34rem;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.45) 0%, rgba(147, 51, 234, 0.3) 50%, transparent 75%);
+    top: 30%;
+    left: 35%;
+    animation: float-artwork-5 15s ease-in-out infinite alternate;
+  }
+
+  /* Soft artwork vignette and depth shimmer */
+  .artwork-shimmer {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 100% 70% at 50% 50%,
+      transparent 35%,
+      rgba(15, 8, 28, 0.45) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Subtle dot grid overlay for digital craftsmanship */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
+  }
+
+  @keyframes float-artwork-1 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(50px, 40px) scale(1.08); }
+    100% { transform: translate(-30px, 50px) scale(0.96); }
+  }
+
+  @keyframes float-artwork-2 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-45px, 45px) scale(1.1); }
+    100% { transform: translate(35px, -25px) scale(0.94); }
+  }
+
+  @keyframes float-artwork-3 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(40px, -35px) scale(1.06); }
+    100% { transform: translate(-35px, 25px) scale(0.97); }
+  }
+
+  @keyframes float-artwork-4 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-35px, -45px) scale(1.1); }
+    100% { transform: translate(45px, 30px) scale(0.95); }
+  }
+
+  @keyframes float-artwork-5 {
+    0% { transform: translate(0, 0) scale(0.95); opacity: 0.45; }
+    50% { transform: translate(30px, -25px) scale(1.15); opacity: 0.7; }
+    100% { transform: translate(-25px, 30px) scale(1); opacity: 0.5; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Frosted Glass Badge with Multi-colour Rim */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0.4rem 1.15rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    margin-bottom: var(--space-xl);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 10px rgba(52, 211, 153, 0.9);
+  }
+
+  .hero-title {
+    color: #ffffff;
+    max-width: 48rem;
+    margin-bottom: var(--space-lg);
+    line-height: 1.1;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+  }
+
+  /* Multi-colour artwork gradient text */
+  .gradient-text-artwork {
+    background: linear-gradient(135deg, #ff9e42 0%, #ff529a 35%, #d946ef 70%, #67e8f9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 14px rgba(236, 72, 153, 0.35));
+  }
+
+  .hero-subtitle {
+    max-width: 36rem;
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.7;
+    margin-bottom: var(--space-2xl);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  /* Multi-colour artwork primary button */
+  :global(.hero-actions .btn-primary-dark) {
+    background: linear-gradient(135deg, #ff6a00 0%, #ee3d7b 50%, #9333ea 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 6px 24px rgba(238, 61, 123, 0.45), 0 2px 6px rgba(0, 0, 0, 0.25);
+  }
+
+  :global(.hero-actions .btn-primary-dark:hover) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(238, 61, 123, 0.65), 0 4px 10px rgba(0, 0, 0, 0.35);
+    color: #ffffff;
+  }
+
+  /* Frosted glass secondary button */
+  :global(.hero-actions .btn-secondary-dark) {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+
+  :global(.hero-actions .btn-secondary-dark:hover) {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.45);
+    transform: translateY(-2px);
+    color: #ffffff;
+  }
+
+  /* ===== HERO TWO-COLUMN LAYOUT ===== */
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-left {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-right {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 36rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Multi-colour artwork halo behind screens */
+  .visual-glow {
+    position: absolute;
+    inset: -15%;
+    background: radial-gradient(
+      ellipse at 50% 50%,
+      rgba(255, 117, 21, 0.4) 0%,
+      rgba(236, 72, 153, 0.3) 35%,
+      rgba(147, 51, 234, 0.25) 55%,
+      rgba(6, 182, 212, 0.18) 70%,
+      transparent 85%
+    );
+    filter: blur(48px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .visual-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.65));
+    transition: transform 0.4s ease;
+  }
+
+  .hero-visual:hover .visual-img {
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 992px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .hero-right {
+      order: 2;
+      margin-top: var(--space-lg);
+    }
+
+    .hero-visual {
+      max-width: 30rem;
+      margin: 0 auto;
+    }
+  }
+
+  /* ===== SECTION STYLING ===== */
+
+  .section-header {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent-1);
+    margin-bottom: var(--space-md);
+  }
+
+  .section-label-dark {
+    color: var(--color-accent-2);
+  }
+
+  .section-desc {
+    color: var(--color-light-text-muted);
+    font-size: 1.0625rem;
+    max-width: 32rem;
+    margin-top: var(--space-md);
+    line-height: 1.7;
+  }
+
+  .section-link-wrap {
+    margin-top: var(--space-2xl);
+  }
+
+  .section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--color-accent-1);
+    transition: gap var(--transition-base);
+  }
+
+  .section-link:hover {
+    gap: var(--space-md);
+    text-decoration: none;
+  }
+
+  /* ===== SERVICES GRID ===== */
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .service-card {
+    position: relative;
+  }
+
+  .service-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-lg);
+    transition: transform var(--transition-fast);
+  }
+
+  .service-card:hover .service-icon {
+    transform: translateY(-2px);
+  }
+
+  .service-icon-blue {
+    background: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
+    border: 1px solid rgba(99, 102, 241, 0.15);
+  }
+
+  .service-icon-amber {
+    background: rgba(245, 158, 11, 0.12);
+    color: #d97706;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
+
+  .service-icon-emerald {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
+  .service-card h3 {
+    margin-bottom: var(--space-sm);
+    font-size: 1.125rem;
+  }
+
+  .service-card p {
+    color: var(--color-light-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* ===== DARK SECTION ===== */
+
+  .section-dark {
+    background: var(--color-dark-bg);
+    color: var(--color-dark-text);
+  }
+
+  .section-dark h2 {
+    color: #ffffff;
+  }
+
+  .section-dark .section-desc {
+    color: var(--color-dark-text-muted);
+  }
+
+  .section-dark .section-link {
+    color: var(--color-accent-2);
+  }
+
+  /* ===== PROJECTS GRID ===== */
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: var(--space-lg);
+  }
+
+  /* ===== CTA GRADIENT ===== */
+
+  .cta-gradient {
+    background: linear-gradient(
+      145deg,
+      #0b0f1a 0%,
+      #131826 40%,
+      #16192e 70%,
+      #0b0f1a 100%
+    );
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 50% 0%,
+      rgba(99, 102, 241, 0.14) 0%,
+      rgba(245, 158, 11, 0.06) 50%,
+      transparent 75%
+    );
+  }
+
+  .cta-content {
+    position: relative;
+    text-align: center;
+    max-width: 36rem;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    color: #ffffff;
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-content p {
+    color: var(--color-dark-text-muted);
+    font-size: 1.0625rem;
+    margin-bottom: var(--space-xl);
+    line-height: 1.7;
+  }
+
+  /* ===================================================
+     LIGHT MODE — OVERALL LIGHT COLOUR GRADIENTS
+     =================================================== */
+
+  :global([data-theme="light"]) .hero {
+    background:
+      radial-gradient(ellipse 95% 75% at 15% 10%, rgba(255, 140, 66, 0.28), transparent 60%),
+      radial-gradient(ellipse 85% 70% at 85% 15%, rgba(192, 132, 252, 0.32), transparent 55%),
+      radial-gradient(ellipse 80% 65% at 50% 90%, rgba(244, 114, 182, 0.28), transparent 60%),
+      radial-gradient(ellipse 70% 60% at 90% 85%, rgba(56, 189, 248, 0.24), transparent 55%),
+      radial-gradient(ellipse 65% 55% at 10% 80%, rgba(251, 191, 36, 0.25), transparent 50%),
+      linear-gradient(150deg, #fff7ed 0%, #fdf4ff 35%, #f0f9ff 70%, #f8fafc 100%);
+  }
+
+  :global([data-theme="light"]) .orb-artwork-1 {
+    background: radial-gradient(circle, rgba(255, 125, 45, 0.45) 0%, rgba(251, 113, 133, 0.3) 40%, transparent 70%);
+  }
+
+  :global([data-theme="light"]) .orb-artwork-2 {
+    background: radial-gradient(circle, rgba(192, 132, 252, 0.42) 0%, rgba(232, 121, 249, 0.28) 45%, transparent 70%);
+  }
+
+  :global([data-theme="light"]) .orb-artwork-3 {
+    background: radial-gradient(circle, rgba(252, 211, 77, 0.4) 0%, rgba(251, 146, 60, 0.25) 45%, transparent 70%);
+  }
+
+  :global([data-theme="light"]) .orb-artwork-4 {
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.38) 0%, rgba(129, 140, 248, 0.22) 45%, transparent 70%);
+  }
+
+  :global([data-theme="light"]) .orb-artwork-5 {
+    background: radial-gradient(circle, rgba(244, 114, 182, 0.35) 0%, rgba(168, 85, 247, 0.24) 50%, transparent 75%);
+  }
+
+  :global([data-theme="light"]) .artwork-shimmer {
+    background: radial-gradient(
+      ellipse 100% 70% at 50% 50%,
+      transparent 35%,
+      rgba(255, 255, 255, 0.6) 100%
+    );
+  }
+
+  :global([data-theme="light"]) .grid-overlay {
+    background-image: radial-gradient(
+      rgba(15, 23, 42, 0.04) 1px,
+      transparent 1px
+    );
+  }
+
+  :global([data-theme="light"]) .hero-title {
+    color: #0f172a;
+    text-shadow: none;
+  }
+
+  :global([data-theme="light"]) .hero-subtitle {
+    color: #334155;
+    text-shadow: none;
+  }
+
+  :global([data-theme="light"]) .hero-badge {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    color: #1e293b;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06), inset 0 1px 0 #ffffff;
+  }
+
+  :global([data-theme="light"]) .hero-actions :global(.btn-secondary-dark) {
+    background: rgba(255, 255, 255, 0.88);
+    border-color: #cbd5e1;
+    color: #0f172a;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  }
+
+  :global([data-theme="light"]) .hero-actions :global(.btn-secondary-dark:hover) {
+    background: #ffffff;
+    border-color: #94a3b8;
+    color: #0f172a;
+  }
+
+  :global([data-theme="light"]) .visual-glow {
+    background: radial-gradient(
+      ellipse at 50% 50%,
+      rgba(255, 140, 66, 0.28) 0%,
+      rgba(244, 114, 182, 0.22) 35%,
+      rgba(192, 132, 252, 0.18) 55%,
+      rgba(56, 189, 248, 0.14) 70%,
+      transparent 85%
+    );
+  }
+
+  /* Light mode for Selected Work Section */
+  :global([data-theme="light"]) .section-dark {
+    background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+    color: #0f172a;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  :global([data-theme="light"]) .section-dark h2 {
+    color: #0f172a;
+  }
+
+  :global([data-theme="light"]) .section-dark .section-desc {
+    color: #64748b;
+  }
+
+  :global([data-theme="light"]) .section-dark .section-label-dark {
+    color: var(--color-accent-1);
+  }
+
+  :global([data-theme="light"]) .section-dark .section-link {
+    color: var(--color-accent-1);
+  }
+
+  /* Light mode for CTA Section */
+  :global([data-theme="light"]) .cta-gradient {
+    background: linear-gradient(
+      135deg,
+      #fff7ed 0%,
+      #fdf2f8 35%,
+      #eff6ff 70%,
+      #f8fafc 100%
+    );
+    border-top: 1px solid #e2e8f0;
+  }
+
+  :global([data-theme="light"]) .cta-gradient::before {
+    background: radial-gradient(
+      ellipse at 50% 50%,
+      rgba(255, 140, 66, 0.22) 0%,
+      rgba(192, 132, 252, 0.2) 45%,
+      transparent 70%
+    );
+  }
+
+  :global([data-theme="light"]) .cta-content h2 {
+    color: #0f172a;
+  }
+
+  :global([data-theme="light"]) .cta-content p {
+    color: #475569;
+  }
+</style>

@@ -1,0 +1,193 @@
+---
+/*
+  Project Card — Premium Version
+  ==============================
+  Elevated card with gradient hover border and smooth transform.
+*/
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  tags?: string[];
+  category?: string;
+}
+
+const { title, description, slug, tags = [], category } = Astro.props;
+---
+
+<a href={`/work/${slug}/`} class="project-card">
+  <article>
+    <!-- Decorative gradient accent -->
+    <div class="card-accent"></div>
+
+    {category && <span class="card-category">{category}</span>}
+
+    <h3 class="card-title">{title}</h3>
+    <p class="card-description">{description}</p>
+
+    {tags.length > 0 && (
+      <div class="card-tags">
+        {tags.map((tag) => (
+          <span class="tag">{tag}</span>
+        ))}
+      </div>
+    )}
+
+    <span class="card-link">
+      View Project
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </article>
+</a>
+
+<style>
+  .project-card {
+    display: block;
+    position: relative;
+    padding: var(--space-xl);
+    background: linear-gradient(155deg, #ffffff 0%, #f8fafc 45%, #edf2f7 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition: all var(--transition-base);
+    overflow: hidden;
+  }
+
+  .project-card:hover {
+    background: linear-gradient(155deg, #ffffff 0%, #f1f5f9 45%, #e2e8f0 100%);
+    border-color: #cbd5e1;
+    box-shadow: 0 14px 30px -4px rgba(15, 23, 42, 0.09), inset 0 1px 0 rgba(255, 255, 255, 1);
+    transform: translateY(-4px);
+    text-decoration: none;
+  }
+
+  /* Grey gradient for dark sections (like Home page Selected Work) */
+  :global(.section-dark) .project-card {
+    background: linear-gradient(160deg, #1e2536 0%, #161c2b 55%, #0f1420 100%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 8px 24px rgba(0, 0, 0, 0.35);
+    color: #e2e8f0;
+  }
+
+  :global(.section-dark) .project-card:hover {
+    background: linear-gradient(160deg, #252e42 0%, #1b2336 55%, #131a28 100%);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 16px 36px rgba(0, 0, 0, 0.45);
+  }
+
+  :global(.section-dark) .card-title {
+    color: #ffffff;
+  }
+
+  :global(.section-dark) .card-description {
+    color: var(--color-dark-text-muted);
+  }
+
+  :global(.section-dark) .tag {
+    background: rgba(99, 102, 241, 0.15);
+    color: #a5b4fc;
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  /* Light mode overrides inside section-dark */
+  :global([data-theme="light"]) :global(.section-dark) .project-card {
+    background: linear-gradient(155deg, #ffffff 0%, #f8fafc 45%, #edf2f7 100%);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    color: #0f172a;
+  }
+
+  :global([data-theme="light"]) :global(.section-dark) .project-card:hover {
+    background: linear-gradient(155deg, #ffffff 0%, #f1f5f9 45%, #e2e8f0 100%);
+    border-color: #cbd5e1;
+    box-shadow: 0 14px 30px -4px rgba(15, 23, 42, 0.09), inset 0 1px 0 rgba(255, 255, 255, 1);
+  }
+
+  :global([data-theme="light"]) :global(.section-dark) .card-title {
+    color: #0f172a;
+  }
+
+  :global([data-theme="light"]) :global(.section-dark) .card-description {
+    color: #64748b;
+  }
+
+  :global([data-theme="light"]) :global(.section-dark) .tag {
+    background: rgba(99, 102, 241, 0.08);
+    color: #6366f1;
+    border-color: rgba(99, 102, 241, 0.15);
+  }
+
+  .card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-brand);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .project-card:hover .card-accent {
+    opacity: 1;
+  }
+
+  .card-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent-1);
+    margin-bottom: var(--space-sm);
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    color: var(--color-light-text);
+    margin-bottom: var(--space-sm);
+  }
+
+  .card-description {
+    color: var(--color-light-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.625rem;
+    background: var(--color-accent-subtle);
+    color: var(--color-accent-1);
+    border-radius: 9999px;
+    border: 1px solid transparent;
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-accent-1);
+    transition: gap var(--transition-base);
+  }
+
+  .project-card:hover .card-link {
+    gap: var(--space-sm);
+  }
+</style>

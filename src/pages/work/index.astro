@@ -1,0 +1,206 @@
+---
+/*
+  WORK (PORTFOLIO) PAGE — Premium Version
+*/
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<BaseLayout
+  title="Work"
+  description="Selected projects by Quake — web applications, AI solutions, and e-commerce platforms."
+>
+  <!-- Page Header -->
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="container page-hero-content">
+      <span class="section-label animate-fade-in-up">Our Work</span>
+      <h1 class="animate-fade-in-up delay-100">
+        Projects built with<br />
+        <span class="gradient-text">care and precision</span>
+      </h1>
+      <p class="page-hero-desc animate-fade-in-up delay-200">
+        A selection of projects that demonstrate our approach,
+        technical skills, and attention to detail.
+      </p>
+    </div>
+  </section>
+
+  <hr class="gradient-divider" />
+
+  <!-- Projects Grid -->
+  <section class="section">
+    <div class="container">
+      {projects.length > 0 ? (
+        <div class="projects-grid reveal-stagger">
+          {projects.map((project) => (
+            <div class="reveal">
+              <ProjectCard
+                title={project.data.title}
+                description={project.data.description}
+                slug={project.id}
+                tags={project.data.tags}
+                category={project.data.category}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state reveal">
+          <p>Projects coming soon. Check back later!</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-gradient">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="container cta-content reveal">
+      <h2>Want to see your project here?</h2>
+      <p>Let's build something great together.</p>
+      <a href="/contact/" class="btn btn-primary-dark">
+        Start a Conversation
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    background: var(--color-dark-bg);
+    padding: 8rem 0 4rem;
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 0%, rgba(99, 102, 241, 0.15), transparent 60%),
+      radial-gradient(ellipse at 70% 100%, rgba(139, 92, 246, 0.1), transparent 60%);
+  }
+
+  .page-hero-content { position: relative; }
+  .page-hero h1 { color: #ffffff; margin-bottom: var(--space-lg); }
+
+  .page-hero-desc {
+    color: var(--color-dark-text-muted);
+    font-size: 1.125rem;
+    max-width: 32rem;
+    line-height: 1.7;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent-1);
+    margin-bottom: var(--space-md);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: var(--space-4xl) 0;
+    color: var(--color-light-text-muted);
+    font-style: italic;
+  }
+
+  .cta-gradient {
+    background: linear-gradient(
+      145deg,
+      #0b0f1a 0%,
+      #131826 40%,
+      #16192e 70%,
+      #0b0f1a 100%
+    );
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-glow {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30rem;
+    height: 30rem;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.14) 0%, rgba(245, 158, 11, 0.06) 50%, transparent 75%);
+    pointer-events: none;
+  }
+
+  .cta-content {
+    position: relative;
+    text-align: center;
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 { color: #ffffff; margin-bottom: var(--space-md); }
+
+  .cta-content p {
+    color: var(--color-dark-text-muted);
+    font-size: 1.0625rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  /* ===== LIGHT MODE FOR WORK PAGE ===== */
+  :global([data-theme="light"]) .page-hero {
+    background: linear-gradient(150deg, #fff7ed 0%, #fdf4ff 40%, #f0f9ff 100%);
+  }
+
+  :global([data-theme="light"]) .page-hero-bg {
+    background:
+      radial-gradient(ellipse at 25% 10%, rgba(255, 140, 66, 0.22), transparent 55%),
+      radial-gradient(ellipse at 75% 90%, rgba(192, 132, 252, 0.22), transparent 55%);
+  }
+
+  :global([data-theme="light"]) .page-hero h1 {
+    color: #0f172a;
+  }
+
+  :global([data-theme="light"]) .page-hero-desc {
+    color: #475569;
+  }
+
+  :global([data-theme="light"]) .cta-gradient {
+    background: linear-gradient(
+      135deg,
+      #fff7ed 0%,
+      #fdf2f8 35%,
+      #eff6ff 70%,
+      #f8fafc 100%
+    );
+    border-top: 1px solid #e2e8f0;
+  }
+
+  :global([data-theme="light"]) .cta-glow {
+    background: radial-gradient(circle, rgba(255, 140, 66, 0.22) 0%, rgba(192, 132, 252, 0.2) 50%, transparent 75%);
+  }
+
+  :global([data-theme="light"]) .cta-content h2 {
+    color: #0f172a;
+  }
+
+  :global([data-theme="light"]) .cta-content p {
+    color: #475569;
+  }
+</style>
