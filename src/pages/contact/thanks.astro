@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Message sent"
+  description="Thanks for getting in touch with Quake."
+>
+  <main class="section">
+    <div class="container">
+      <div class="thank-you-card">
+        <p class="thank-you-label">Message sent</p>
+        <h1>Thanks for reaching out.</h1>
+        <p class="thank-you-copy">
+          Your message is on its way. We typically respond within 24 hours on business days.
+        </p>
+        <a class="btn btn-primary" href="/">Back to home</a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .thank-you-card {
+    max-width: 42rem;
+    margin: 2rem auto;
+    padding: clamp(2rem, 6vw, 4rem);
+    text-align: center;
+    border: 1px solid var(--color-light-border);
+    border-radius: var(--radius-xl);
+    background: var(--color-light-bg);
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+  }
+
+  .thank-you-label {
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-1);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .thank-you-card h1 {
+    margin-bottom: var(--space-md);
+  }
+
+  .thank-you-copy {
+    max-width: 32rem;
+    margin: 0 auto var(--space-xl);
+    color: var(--color-light-text-muted);
+    line-height: 1.7;
+  }
+</style>

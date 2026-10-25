@@ -6,13 +6,13 @@
 
   SETUP: Replace YOUR_ACCESS_KEY_HERE with your Web3Forms key.
 */
-const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE";
+const WEB3FORMS_KEY = "6d9e4f33-7783-4139-867d-15c43ec4e597";
 ---
 
 <form
   action="https://api.web3forms.com/submit"
   method="POST"
-  class="contact-form"
+  class="contact-form" data-contact-form
 >
   <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
   <input
@@ -24,7 +24,6 @@ const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE";
     autocomplete="off"
   />
   <input type="hidden" name="subject" value="New inquiry from Quake website" />
-  <input type="hidden" name="redirect" value="https://web3forms.com/success" />
 
   <div class="form-group">
     <label for="name">Name</label>
@@ -61,6 +60,8 @@ const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE";
     ></textarea>
   </div>
 
+  <p class="form-status" data-form-status role="status" aria-live="polite" aria-atomic="true"></p>
+
   <button type="submit" class="btn btn-primary btn-submit">
     Send Message
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -69,12 +70,59 @@ const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE";
   </button>
 </form>
 
+<script>
+  const contactForm = document.querySelector("form[data-contact-form]");
+
+  if (contactForm) {
+    const status = contactForm.querySelector("[data-form-status]");
+    const submitButton = contactForm.querySelector("button");
+
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (submitButton) submitButton.disabled = true;
+      if (status) status.textContent = "Sending your message...";
+
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(Object.fromEntries(formData.entries())),
+        });
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || "The message could not be sent.");
+        }
+
+        window.location.assign("/contact/thanks/");
+      } catch {
+        if (status) status.textContent = "We couldn't send your message. Please try again.";
+        if (submitButton) submitButton.disabled = false;
+      }
+    });
+  }
+</script>
 <style>
   .contact-form {
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
     max-width: 32rem;
+  }
+
+  .form-status {
+    margin: 0;
+    color: var(--color-light-text-muted);
+    font-size: 0.875rem;
+  }
+
+  .form-status:empty {
+    display: none;
   }
 
   .form-group {
