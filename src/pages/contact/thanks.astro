@@ -3,52 +3,223 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="Message sent"
-  description="Thanks for getting in touch with Quake."
+  title="Thanks for reaching out"
+  description="Your message has reached Quake. We’ll be in touch soon."
 >
-  <main class="section">
+  <div class="thank-you-page">
+    <div class="thank-you-orbit thank-you-orbit-one" aria-hidden="true"></div>
+    <div class="thank-you-orbit thank-you-orbit-two" aria-hidden="true"></div>
+
     <div class="container">
-      <div class="thank-you-card">
-        <p class="thank-you-label">Message sent</p>
-        <h1>Thanks for reaching out.</h1>
+      <section class="thank-you-card" aria-labelledby="thanks-title">
+        <div class="thank-you-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path d="M14 24.5 21 31l13-15" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <p class="thank-you-label"><span></span> Message received</p>
+        <h1 id="thanks-title">Thanks for reaching out.</h1>
         <p class="thank-you-copy">
-          Your message is on its way. We typically respond within 24 hours on business days.
+          Your note has landed with Quake. We’ll be in touch within one business day.
         </p>
-        <a class="btn btn-primary" href="/">Back to home</a>
-      </div>
+
+        <div class="response-time">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M10 6v4l2.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Usually within 24 hours on business days</span>
+        </div>
+
+        <div class="thank-you-actions">
+          <a class="btn btn-primary" href="/">
+            Back to home
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a class="thank-you-secondary" href="/work/">Explore our work</a>
+        </div>
+      </section>
     </div>
-  </main>
+  </div>
 </BaseLayout>
 
 <style>
+  .thank-you-page {
+    position: relative;
+    display: grid;
+    min-height: 70vh;
+    place-items: center;
+    overflow: hidden;
+    padding: clamp(4rem, 9vw, 7rem) 1.25rem;
+    background:
+      radial-gradient(ellipse 34rem 27rem at 12% 8%, rgba(255, 119, 35, 0.12), transparent 72%),
+      radial-gradient(ellipse 30rem 24rem at 90% 95%, rgba(99, 102, 241, 0.1), transparent 72%),
+      var(--color-light-bg);
+  }
+
+  .thank-you-orbit {
+    position: absolute;
+    width: 24rem;
+    aspect-ratio: 1;
+    border: 1px solid rgba(255, 126, 42, 0.14);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .thank-you-orbit-one {
+    top: -15rem;
+    right: -7rem;
+  }
+
+  .thank-you-orbit-two {
+    bottom: -18rem;
+    left: -8rem;
+    width: 30rem;
+    border-color: rgba(99, 102, 241, 0.12);
+  }
+
   .thank-you-card {
-    max-width: 42rem;
-    margin: 2rem auto;
-    padding: clamp(2rem, 6vw, 4rem);
+    position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: clamp(2.25rem, 7vw, 5rem);
+    overflow: hidden;
     text-align: center;
     border: 1px solid var(--color-light-border);
-    border-radius: var(--radius-xl);
+    border-radius: 2rem;
     background: var(--color-light-bg);
-    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 28px 80px rgba(27, 31, 42, 0.12);
+  }
+
+  .thank-you-card::before {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 5px;
+    background: linear-gradient(90deg, #ff7424, #ffb347 48%, #8b5cf6);
+    content: "";
+  }
+
+  .thank-you-mark {
+    display: grid;
+    width: 4.5rem;
+    aspect-ratio: 1;
+    place-items: center;
+    margin: 0 auto 1.5rem;
+    color: #ffffff;
+    border: 5px solid rgba(255, 255, 255, 0.55);
+    border-radius: 1.5rem;
+    background: linear-gradient(145deg, #ff8128, #ed5918);
+    box-shadow: 0 10px 28px rgba(255, 116, 36, 0.28);
+    outline: 1px solid rgba(255, 116, 36, 0.2);
+  }
+
+  .thank-you-mark svg {
+    width: 2rem;
   }
 
   .thank-you-label {
-    margin-bottom: var(--space-md);
-    color: var(--color-accent-1);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 1rem;
+    color: #e65f19;
+    font-size: 0.75rem;
+    font-weight: 750;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
   }
 
+  .thank-you-label span {
+    width: 0.45rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #f07824;
+    box-shadow: 0 0 0 4px rgba(240, 120, 36, 0.12);
+  }
+
   .thank-you-card h1 {
-    margin-bottom: var(--space-md);
+    max-width: 38rem;
+    margin: 0 auto 1rem;
+    color: var(--color-light-text);
+    font-size: clamp(2.25rem, 6vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.055em;
   }
 
   .thank-you-copy {
-    max-width: 32rem;
-    margin: 0 auto var(--space-xl);
+    max-width: 31rem;
+    margin: 0 auto 1.5rem;
     color: var(--color-light-text-muted);
+    font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: 1.7;
+  }
+
+  .response-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 2rem;
+    padding: 0.65rem 1rem;
+    color: var(--color-light-text);
+    border: 1px solid var(--color-light-border);
+    border-radius: 999px;
+    background: var(--color-light-surface);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .response-time svg {
+    width: 1.1rem;
+    color: #ed6b22;
+  }
+
+  .thank-you-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .thank-you-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .thank-you-actions .btn svg {
+    width: 1.1rem;
+    transition: transform 0.2s ease;
+  }
+
+  .thank-you-actions .btn:hover svg {
+    transform: translateX(3px);
+  }
+
+  .thank-you-secondary {
+    color: var(--color-light-text);
+    font-size: 0.9375rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .thank-you-secondary:hover {
+    color: #e65f19;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  @media (max-width: 560px) {
+    .thank-you-card {
+      border-radius: 1.5rem;
+    }
+
+    .thank-you-actions {
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
 </style>

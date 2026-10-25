@@ -23,7 +23,8 @@ const WEB3FORMS_KEY = "6d9e4f33-7783-4139-867d-15c43ec4e597";
     tabindex="-1"
     autocomplete="off"
   />
-  <input type="hidden" name="subject" value="New inquiry from Quake website" />
+  <input type="hidden" name="from_name" value="Quake website" />
+  <input type="hidden" name="subject" value="New project inquiry from Quake website" />
 
   <div class="form-group">
     <label for="name">Name</label>
@@ -85,6 +86,13 @@ const WEB3FORMS_KEY = "6d9e4f33-7783-4139-867d-15c43ec4e597";
 
       try {
         const formData = new FormData(contactForm);
+        const senderName = String(formData.get("name") || "").trim();
+        formData.set(
+          "subject",
+          senderName
+            ? "New project inquiry from " + senderName
+            : "New project inquiry from Quake website",
+        );
         const response = await fetch(contactForm.action, {
           method: "POST",
           headers: {
