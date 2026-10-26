@@ -267,51 +267,60 @@ const featuredProjects = allProjects
     const section = document.querySelector("[data-process-story]");
     if (!section) return;
 
+    window.__quakeProcessStoryCleanup?.();
+
     const steps = Array.from(section.querySelectorAll("[data-story-step]"));
     const panels = Array.from(section.querySelectorAll("[data-story-panel]"));
-    if (!steps.length || !panels.length) return;
+    const grid = section.querySelector(".process-story-grid");
+    if (!steps.length || !panels.length || !grid) return;
 
-    let activePanelIndex = panels.findIndex((panel) => panel.classList.contains("is-active"));
-    let panelSwapTimer;
+    let activePanelIndex = -1;
+    let frame = 0;
 
     const activate = (index) => {
+      if (index === activePanelIndex) return;
+      activePanelIndex = index;
       steps.forEach((step, stepIndex) => {
         step.classList.toggle("is-active", stepIndex === index);
       });
-      if (index === activePanelIndex) return;
-
-      window.clearTimeout(panelSwapTimer);
-      activePanelIndex = index;
-      panels.forEach((panel) => {
-        panel.classList.remove("is-active");
-        panel.classList.add("is-leaving");
-        panel.setAttribute("aria-hidden", "true");
+      panels.forEach((panel, panelIndex) => {
+        const active = panelIndex === index;
+        panel.classList.toggle("is-active", active);
+        panel.setAttribute("aria-hidden", String(!active));
       });
-
-      const delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 280;
-      panelSwapTimer = window.setTimeout(() => {
-        panels.forEach((panel) => panel.classList.remove("is-leaving"));
-        panels[index].classList.add("is-active");
-        panels[index].setAttribute("aria-hidden", "false");
-        panelSwapTimer = undefined;
-      }, delay);
     };
 
-    if (!("IntersectionObserver" in window)) return;
+    const updateActiveStep = () => {
+      frame = 0;
+      const focusY = window.innerHeight * 0.5;
+      const gridBounds = grid.getBoundingClientRect();
+      if (focusY < gridBounds.top || focusY > gridBounds.bottom) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const centeredStep = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!centeredStep) return;
-        const index = steps.indexOf(centeredStep.target);
-        if (index >= 0) activate(index);
-      },
-      { rootMargin: "-38% 0px -38% 0px", threshold: [0, 0.1, 0.25, 0.5] },
-    );
+      let nearestIndex = 0;
+      let nearestDistance = Infinity;
+      steps.forEach((step, index) => {
+        const bounds = step.getBoundingClientRect();
+        const distance = Math.abs((bounds.top + bounds.bottom) / 2 - focusY);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearestIndex = index;
+        }
+      });
+      activate(nearestIndex);
+    };
 
-    steps.forEach((step) => observer.observe(step));
+    const requestUpdate = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateActiveStep);
+    };
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    window.__quakeProcessStoryCleanup = () => {
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+    updateActiveStep();
   }
 
   if (document.readyState === "loading") {
@@ -1038,13 +1047,13 @@ const featuredProjects = allProjects
   .process-story-heading > p { max-width: 38rem; margin-top: 1.25rem; color: var(--color-light-text-muted); font-size: 1.0625rem; }
   .process-story-grid { display: grid; grid-template-columns: minmax(17rem, .8fr) minmax(0, 1.2fr); gap: clamp(2rem, 7vw, 7rem); align-items: stretch; }
   .process-story-steps { min-width: 0; }
-  .process-story-step { min-height: 65vh; display: flex; align-items: center; padding: 2rem 0; opacity: .46; transition: opacity .45s ease; }
+  .process-story-step { min-height: 65vh; display: flex; align-items: center; padding: 2rem 0; opacity: .46; transition: opacity .3s ease; }
   .process-story-step.is-active { opacity: 1; }
-  .process-story-step-content { max-width: 31rem; }
+  .process-story-step-content { max-width: 34rem; }
   .process-story-kicker { display: inline-flex; align-items: center; gap: .7rem; margin-bottom: 1.25rem; color: var(--color-accent-1); font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
   .process-story-kicker span { color: var(--color-light-text-muted); font-weight: 600; }
-  .process-story-step h3 { margin-bottom: 1rem; }
-  .process-story-step p { color: var(--color-light-text-muted); max-width: 30rem; }
+  .process-story-step h3 { margin-bottom: 1rem; font-size: clamp(1.45rem, 2vw, 1.8rem); }
+  .process-story-step p { color: var(--color-light-text-muted); max-width: 32rem; font-size: 1.1rem; line-height: 1.75; }
   .process-story-visual { position: sticky; top: 17vh; align-self: start; height: 66vh; min-height: 24rem; max-height: 46rem; overflow: hidden; border-radius: 1.25rem; background: #fff; }
   .process-story-panel { position: absolute; inset: 0; display: grid; place-items: center; padding: clamp(1rem, 3vw, 2.5rem); opacity: 0; transform: translateY(1rem) scale(.985); transition: opacity .55s ease, transform .65s cubic-bezier(.2,.7,.2,1); pointer-events: none; }
   .process-story-panel.is-active { opacity: 1; transform: translateY(0) scale(1); }
@@ -1066,8 +1075,11 @@ const featuredProjects = allProjects
   
   /* Product cutouts sit directly on the story canvas. */
   .process-story { padding-bottom: clamp(10rem, 16vw, 15rem) !important; }
-  .process-story-visual { top: 16vh; height: 72vh; min-height: 30rem; max-height: 52rem; border-radius: 0; background: transparent !important; }
-  .process-story-panel { padding: .25rem; }
+  .process-story-visual { top: 16vh; height: 68vh; min-height: 28rem; max-height: 46rem; border-radius: 0; background: transparent !important; }
+  .process-story-step { min-height: 82vh; }
+  .process-story-panel { display: none; padding: .25rem; opacity: 0; transform: none; transition: none; }
+  .process-story-panel.is-active { display: grid; animation: story-panel-in .18s ease-out both; }
+  @keyframes story-panel-in { from { opacity: 0; } to { opacity: 1; } }
   .process-story-panel > img { transform: scale(1); }
   .process-story-panel[data-story-panel="0"] > img { width: auto; max-width: 100%; height: 100%; transform: none; object-fit: contain; }
   .process-story-panel[data-story-panel="1"] > img { transform: scale(1.03); }
@@ -1075,6 +1087,7 @@ const featuredProjects = allProjects
   .story-image-note,.process-story-caption { display: none !important; }
   @media (max-width: 760px) {
     .process-story { padding-bottom: 7rem !important; }
+    .process-story-step { min-height: 0; }
     .process-story-visual { top: auto; height: auto; min-height: 0; }
     .story-mobile-art { display: block; width: 100%; max-width: 42rem; margin: 1.5rem auto 0; border: 0; border-radius: 0; background: transparent !important; }
     .story-mobile-art-phone { aspect-ratio: 4 / 5; object-fit: contain; object-position: center; }
