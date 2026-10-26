@@ -274,20 +274,35 @@ const featuredProjects = allProjects
     const grid = section.querySelector(".process-story-grid");
     if (!steps.length || !panels.length || !grid) return;
 
-    let activePanelIndex = -1;
+    let activePanelIndex = panels.findIndex((panel) => panel.classList.contains("is-active"));
+    let pendingPanelIndex = activePanelIndex;
+    let transitionTimer;
     let frame = 0;
 
     const activate = (index) => {
-      if (index === activePanelIndex) return;
-      activePanelIndex = index;
       steps.forEach((step, stepIndex) => {
         step.classList.toggle("is-active", stepIndex === index);
       });
-      panels.forEach((panel, panelIndex) => {
-        const active = panelIndex === index;
-        panel.classList.toggle("is-active", active);
-        panel.setAttribute("aria-hidden", String(!active));
-      });
+      if (index === activePanelIndex) return;
+
+      activePanelIndex = index;
+      pendingPanelIndex = index;
+      if (transitionTimer !== undefined) return;
+
+      const outgoingPanel = panels.find((panel) => panel.classList.contains("is-active"));
+      if (outgoingPanel) {
+        outgoingPanel.classList.remove("is-active");
+        outgoingPanel.classList.add("is-leaving");
+        outgoingPanel.setAttribute("aria-hidden", "true");
+      }
+
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      transitionTimer = window.setTimeout(() => {
+        panels.forEach((panel) => panel.classList.remove("is-leaving"));
+        panels[pendingPanelIndex].classList.add("is-active");
+        panels[pendingPanelIndex].setAttribute("aria-hidden", "false");
+        transitionTimer = undefined;
+      }, reducedMotion ? 0 : 160);
     };
 
     const updateActiveStep = () => {
@@ -319,6 +334,7 @@ const featuredProjects = allProjects
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestUpdate);
       if (frame) window.cancelAnimationFrame(frame);
+      if (transitionTimer !== undefined) window.clearTimeout(transitionTimer);
     };
     updateActiveStep();
   }
@@ -1078,8 +1094,16 @@ const featuredProjects = allProjects
   .process-story-visual { top: 16vh; height: 68vh; min-height: 28rem; max-height: 46rem; border-radius: 0; background: transparent !important; }
   .process-story-step { min-height: 82vh; }
   .process-story-panel { display: none; padding: .25rem; opacity: 0; transform: none; transition: none; }
-  .process-story-panel.is-active { display: grid; animation: story-panel-in .18s ease-out both; }
-  @keyframes story-panel-in { from { opacity: 0; } to { opacity: 1; } }
+  .process-story-panel.is-active { display: grid; animation: story-panel-in .38s cubic-bezier(.2,.7,.2,1) both; }
+  .process-story-panel.is-leaving { display: grid; animation: story-panel-out .16s ease-in both; }
+  @keyframes story-panel-in {
+    from { opacity: 0; transform: translateY(12px) scale(.985); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes story-panel-out {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(-5px) scale(.992); }
+  }
   .process-story-panel > img { transform: scale(1); }
   .process-story-panel[data-story-panel="0"] > img { width: auto; max-width: 100%; height: 100%; transform: none; object-fit: contain; }
   .process-story-panel[data-story-panel="1"] > img { transform: scale(1.03); }
@@ -1094,7 +1118,7 @@ const featuredProjects = allProjects
     .story-mobile-art-admin,.story-mobile-art-checkout { aspect-ratio: 16 / 9; object-fit: contain; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .process-story-step,.process-story-panel { transition: none; }
+    .process-story-step,.process-story-panel { transition: none; animation: none !important; }
   }
   </style>
 
