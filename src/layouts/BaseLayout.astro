@@ -14,6 +14,7 @@ import ScrollReveal from "../components/ScrollReveal.astro";
 import "@fontsource-variable/inter";
 
 import "../styles/global.css";
+import "../styles/quake-redesign.css";
 
 interface Props {
   title: string;
@@ -29,21 +30,10 @@ const { title, description, ogImage } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0b0f1a" id="meta-theme-color" />
+    <meta name="theme-color" content="#ffffff" id="meta-theme-color" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <SEO title={title} description={description} ogImage={ogImage} />
-    <script is:inline>
-      // Immediately apply theme on initial load to avoid flash
-      (function() {
-        const stored = localStorage.getItem('quake-theme');
-        const theme = stored ? stored : 'dark';
-        document.documentElement.setAttribute('data-theme', theme);
-        const metaTheme = document.getElementById('meta-theme-color');
-        if (metaTheme) {
-          metaTheme.setAttribute('content', theme === 'light' ? '#eaecf0' : '#0b0f1a');
-        }
-      })();
-    </script>
+    <script is:inline>document.documentElement.setAttribute("data-theme", "light");</script>
   </head>
   <body>
     <a href="#main-content" class="sr-only">Skip to main content</a>
@@ -55,3 +45,5 @@ const { title, description, ogImage } = Astro.props;
     <ScrollReveal />
   </body>
 </html>
+
+

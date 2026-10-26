@@ -1,245 +1,37 @@
 ---
-/*
-  Footer — Premium Dark Footer
-  =============================
-  Polished dark footer with custom brand wordmark and gradient divider.
-*/
 const currentYear = new Date().getFullYear();
 ---
-
-<hr class="gradient-divider" />
-
 <footer class="footer">
   <div class="container footer-content">
     <div class="footer-top">
       <div class="footer-brand-section">
-        <a href="/" class="footer-brand" aria-label="Quake Home">
-          <div class="logo-wrapper">
-            <img
-              src="/images/logo-q-transparent.png"
-              alt="Q"
-              class="footer-logo-q"
-              width="591"
-              height="794"
-              loading="lazy"
-            />
-            <span class="brand-suffix">uake</span>
-          </div>
+        <a href="/" class="footer-brand" aria-label="Quake home">
+          <img src="/images/logo-q-transparent.png" alt="" class="footer-logo-q" width="591" height="794" loading="lazy" />
+          <span class="brand-suffix">uake</span>
         </a>
-        <p class="footer-tagline">
-          Software development and AI solutions<br />for growing businesses.
-        </p>
+        <p class="footer-tagline">Software and thoughtful technology<br />for growing businesses.</p>
       </div>
-
       <nav class="footer-nav" aria-label="Footer navigation">
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/services/">Services</a></li>
-            <li><a href="/work/">Work</a></li>
-            <li><a href="/contact/">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="/services/">Web Applications</a></li>
-            <li><a href="/services/">AI Solutions</a></li>
-            <li><a href="/services/">E-Commerce</a></li>
-          </ul>
-        </div>
+        <div class="footer-col"><h4>Explore</h4><ul><li><a href="/about/">About</a></li><li><a href="/services/">Services</a></li><li><a href="/work/">Work</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+        <div class="footer-col"><h4>What we build</h4><ul><li><a href="/services/">Web applications</a></li><li><a href="/services/">AI integrations</a></li><li><a href="/services/">Online stores</a></li></ul></div>
       </nav>
     </div>
-
-    <div class="footer-bottom">
-      <p>&copy; {currentYear} Quake. All rights reserved.</p>
-      <p class="footer-location">Based in India · Available worldwide</p>
-    </div>
+    <div class="footer-bottom"><p>© {currentYear} Quake</p><p class="footer-location">Based in India · Working worldwide</p></div>
   </div>
 </footer>
-
 <style>
-  .footer {
-    background-color: var(--color-dark-bg);
-    color: var(--color-dark-text-muted);
-    padding: var(--space-4xl) 0 var(--space-xl);
-  }
-
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3xl);
-  }
-
-  .footer-top {
-    display: flex;
-    justify-content: space-between;
-    gap: var(--space-3xl);
-    flex-wrap: wrap;
-  }
-
-  .footer-brand-section {
-    max-width: 22rem;
-  }
-
-  .footer-brand {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    color: #ffffff;
-    margin-bottom: var(--space-md);
-  }
-
-  .footer-brand:hover {
-    text-decoration: none;
-    color: #ffffff;
-  }
-
-  .logo-wrapper {
-    display: inline-flex;
-    align-items: center;
-    gap: 0;
-    transition: transform 0.25s ease;
-  }
-
-  .footer-brand:hover .logo-wrapper {
-    transform: translateY(-1px) scale(1.02);
-  }
-
-  .footer-logo-q {
-    height: 2.85rem;
-    width: auto;
-    object-fit: contain;
-    display: block;
-    filter: drop-shadow(0 2px 10px rgba(255, 117, 21, 0.35));
-  }
-
-  .brand-suffix {
-    font-size: 1.75rem;
-    font-weight: 800;
-    letter-spacing: -0.045em;
-    color: #ffffff;
-    line-height: 1;
-    margin-left: -3px;
-    font-family: var(--font-heading);
-  }
-
-  .footer-tagline {
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    margin-top: var(--space-xs);
-  }
-
-  .footer-nav {
-    display: flex;
-    gap: var(--space-3xl);
-  }
-
-  .footer-col h4 {
-    color: #ffffff;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: var(--space-md);
-  }
-
-  .footer-col ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-
-  .footer-col a {
-    color: var(--color-dark-text-muted);
-    font-size: 0.875rem;
-    transition: color var(--transition-fast);
-  }
-
-  .footer-col a:hover {
-    color: #ffffff;
-  }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: var(--space-xl);
-    border-top: 1px solid var(--color-dark-border);
-    font-size: 0.8125rem;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-  }
-
-  .footer-location {
-    color: var(--color-dark-text-muted);
-  }
-
-  /* ===== LIGHT MODE FOOTER (ASH SLATE) ===== */
-  :global([data-theme="light"]) .gradient-divider {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 106, 0, 0.55) 20%,
-      rgba(236, 72, 153, 0.55) 50%,
-      rgba(139, 92, 246, 0.55) 80%,
-      transparent
-    );
-  }
-
-  :global([data-theme="light"]) .footer {
-    background: linear-gradient(180deg, #eaecf0 0%, #dfe3e8 100%);
-    color: #475467;
-    border-top: 1px solid rgba(139, 92, 246, 0.2);
-  }
-
-  :global([data-theme="light"]) .footer-brand {
-    color: #101828;
-  }
-
-  :global([data-theme="light"]) .footer-brand:hover {
-    color: #101828;
-  }
-
-  :global([data-theme="light"]) .footer-brand .brand-suffix {
-    color: #101828;
-  }
-
-  :global([data-theme="light"]) .footer-tagline {
-    color: #475467;
-  }
-
-  :global([data-theme="light"]) .footer-col h4 {
-    color: #101828;
-  }
-
-  :global([data-theme="light"]) .footer-col a {
-    color: #475467;
-  }
-
-  :global([data-theme="light"]) .footer-col a:hover {
-    color: #101828;
-  }
-
-  :global([data-theme="light"]) .footer-bottom {
-    border-top: 1px solid rgba(16, 24, 40, 0.12);
-    color: #667085;
-  }
-
-  :global([data-theme="light"]) .footer-location {
-    color: #667085;
-  }
-
-  @media (max-width: 640px) {
-    .footer-top {
-      flex-direction: column;
-    }
-    .footer-bottom {
-      flex-direction: column;
-      text-align: center;
-    }
-  }
+  .footer { padding:clamp(3rem,6vw,5rem) 0 1.5rem; }
+  .footer-content { display:flex; flex-direction:column; gap:3rem; }
+  .footer-top { display:flex; justify-content:space-between; gap:3rem; flex-wrap:wrap; }
+  .footer-brand-section { max-width:22rem; }
+  .footer-brand { display:inline-flex; align-items:center; text-decoration:none; margin-bottom:1rem; }
+  .footer-logo-q { height:35px; width:auto; object-fit:contain; }
+  .brand-suffix { margin-left:-2px; color:#1d1d1f; font-size:1.55rem; font-weight:600; letter-spacing:-.045em; }
+  .footer-tagline { font-size:.95rem; }
+  .footer-nav { display:flex; gap:clamp(2rem,6vw,6rem); }
+  .footer-col h4 { font-size:.9rem; margin-bottom:1rem; }
+  .footer-col ul { display:flex; flex-direction:column; gap:.65rem; list-style:none; padding:0; }
+  .footer-col a { text-decoration:none; font-size:.9rem; }
+  .footer-bottom { display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; padding-top:1.25rem; border-top:1px solid #d2d2d7; font-size:.82rem; }
+  @media(max-width:600px) { .footer-top,.footer-bottom { flex-direction:column; } .footer-nav { gap:2rem; } }
 </style>
