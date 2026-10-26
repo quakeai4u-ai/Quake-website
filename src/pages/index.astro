@@ -150,69 +150,58 @@ const featuredProjects = allProjects
     </div>
   </section>
 
-  <!-- ===== HOW A PROJECT TAKES SHAPE ===== -->
+  <!-- ===== COMMERCE PRODUCT STORY ===== -->
   <section class="section process-story" data-process-story aria-labelledby="process-story-title">
     <div class="container">
       <header class="process-story-heading reveal">
-        <span class="section-label">A clear process</span>
-        <h2 id="process-story-title">From first idea<br />to useful software.</h2>
-        <p>Thoughtful work starts with the right questions, then moves forward one clear step at a time.</p>
+        <span class="section-label">Illustrative product concept</span>
+        <h2 id="process-story-title">One online store.<br />Three connected experiences.</h2>
+        <p>These concept screens show how the customer journey connects with the tools a business uses to run each day.</p>
       </header>
 
       <div class="process-story-grid">
         <div class="process-story-steps">
           <article class="process-story-step is-active" data-story-step="0">
             <div class="process-story-step-content">
-              <span class="process-story-kicker">01 <span>Clarify</span></span>
-              <h3>Start with what matters.</h3>
-              <p>We get clear on who the product is for, what problem it should solve, and what needs to work first.</p>
-              <div class="story-mobile-art brief-board" aria-hidden="true">
-                <span class="brief-eyebrow">Project starting point</span>
-                <strong>Make the next step clear.</strong>
-                <span class="brief-row"><i></i> Who is it for?</span>
-                <span class="brief-row"><i></i> What should it help them do?</span>
-                <span class="brief-row"><i></i> What matters most right now?</span>
-              </div>
+              <span class="process-story-kicker">01 <span>Shop</span></span>
+              <h3>Make browsing easy.</h3>
+              <p>A mobile shopping experience helps customers find products and add them to their cart.</p>
+              <img class="story-mobile-art" src="/images/commerce-mobile-concept.png" alt="Illustrative FreshCart grocery shopping app on a phone" loading="lazy" />
+              <p class="story-image-note">Illustrative mobile storefront</p>
             </div>
           </article>
           <article class="process-story-step" data-story-step="1">
             <div class="process-story-step-content">
-              <span class="process-story-kicker">02 <span>Design</span></span>
-              <h3>Shape a clear experience.</h3>
-              <p>We map the essential screens and make sure the experience feels considered on every device.</p>
-              <img class="story-mobile-art" src="/images/showcase-screens-transparent.png" alt="Illustrative online storefront concept shown on desktop, tablet, and phone" loading="lazy" />
-              <p class="story-image-note">Illustrative interface concept</p>
+              <span class="process-story-kicker">02 <span>Manage</span></span>
+              <h3>Keep the store moving.</h3>
+              <p>An admin dashboard brings orders, inventory, customers, and sales into one view.</p>
+              <img class="story-mobile-art" src="/images/commerce-admin-concept.png" alt="Illustrative FreshCart store administration dashboard on a tablet" loading="lazy" />
+              <p class="story-image-note">Illustrative store dashboard</p>
             </div>
           </article>
           <article class="process-story-step" data-story-step="2">
             <div class="process-story-step-content">
-              <span class="process-story-kicker">03 <span>Build and refine</span></span>
-              <h3>Make it real, step by step.</h3>
-              <p>We build in focused increments, share progress, and refine the details with your feedback.</p>
-              <img class="story-mobile-art" src="/images/showcase-devices.jpg" alt="Illustrative responsive storefront and dashboard concept across devices" loading="lazy" />
-              <p class="story-image-note">Illustrative multi-device concept</p>
+              <span class="process-story-kicker">03 <span>Complete</span></span>
+              <h3>End on a clear note.</h3>
+              <p>A helpful order confirmation shows customers what they bought and what happens next.</p>
+              <img class="story-mobile-art" src="/images/commerce-checkout-concept.png" alt="Illustrative FreshCart order confirmation page on a laptop" loading="lazy" />
+              <p class="story-image-note">Illustrative checkout experience</p>
             </div>
           </article>
         </div>
 
         <div class="process-story-visual" data-story-visual aria-hidden="true">
           <div class="process-story-panel is-active" data-story-panel="0">
-            <div class="brief-board">
-              <span class="brief-eyebrow">Project starting point</span>
-              <strong>Make the next step clear.</strong>
-              <span class="brief-row"><i></i> Who is it for?</span>
-              <span class="brief-row"><i></i> What should it help them do?</span>
-              <span class="brief-row"><i></i> What matters most right now?</span>
-            </div>
-            <span class="process-story-caption">01 · Clarify the goal</span>
+            <img src="/images/commerce-mobile-concept.png" alt="" loading="lazy" />
+            <span class="process-story-caption">01 · Mobile storefront concept</span>
           </div>
           <div class="process-story-panel" data-story-panel="1">
-            <img src="/images/showcase-screens-transparent.png" alt="" loading="lazy" />
-            <span class="process-story-caption">02 · Illustrative interface concept</span>
+            <img src="/images/commerce-admin-concept.png" alt="" loading="lazy" />
+            <span class="process-story-caption">02 · Store dashboard concept</span>
           </div>
           <div class="process-story-panel" data-story-panel="2">
-            <img src="/images/showcase-devices.jpg" alt="" loading="lazy" />
-            <span class="process-story-caption">03 · Illustrative multi-device concept</span>
+            <img src="/images/commerce-checkout-concept.png" alt="" loading="lazy" />
+            <span class="process-story-caption">03 · Checkout concept</span>
           </div>
         </div>
       </div>
@@ -1046,27 +1035,20 @@ const featuredProjects = allProjects
   .process-story-panel.is-active { opacity: 1; transform: translateY(0) scale(1); }
   .process-story-panel > img { display: block; width: 100%; height: 100%; object-fit: contain; }
   .process-story-caption { position: absolute; left: 1.25rem; bottom: 1.25rem; padding: .55rem .85rem; border: 1px solid rgba(29,29,31,.08); border-radius: 999px; background: rgba(255,255,255,.9); color: #6e6e73; font-size: .78rem; line-height: 1.3; }
-  .brief-board { width: min(100%, 27rem); display: flex; flex-direction: column; gap: 1rem; padding: clamp(1.5rem, 4vw, 2.5rem); border: 1px solid #e0e0e0; border-radius: 1rem; background: #fff; }
-  .brief-eyebrow { color: var(--color-light-text-muted); font-size: .8rem; }
-  .brief-board strong { max-width: 13ch; margin-bottom: .6rem; color: var(--color-light-text); font-size: clamp(1.5rem, 3vw, 2.3rem); line-height: 1.1; letter-spacing: -.04em; }
-  .brief-row { display: flex; align-items: center; gap: .75rem; padding: .8rem 0; border-top: 1px solid #e8e8ed; color: #4d4d52; font-size: .92rem; }
-  .brief-row i { display: block; width: .65rem; height: .65rem; flex: 0 0 auto; border: 1.5px solid #0066cc; border-radius: 50%; }
   .story-mobile-art,.story-image-note { display: none; }
   @media (max-width: 760px) {
     .process-story-grid { grid-template-columns: 1fr; gap: 0; }
     .process-story-visual { display: none; }
     .process-story-step { min-height: 0; display: block; padding: 2.5rem 0; border-top: 1px solid var(--color-light-border); opacity: 1; }
     .process-story-step-content { max-width: none; }
-    .story-mobile-art { display: flex; width: 100%; max-width: 34rem; aspect-ratio: 1.38; margin-top: 1.5rem; object-fit: contain; border-radius: 1rem; background: #fff; }
-    .brief-board.story-mobile-art { flex-direction: column; align-items: stretch; justify-content: center; padding: 1.2rem; }
-    .brief-board.story-mobile-art .brief-eyebrow { font-size: .72rem; }
-    .brief-board.story-mobile-art strong { font-size: 1.4rem; }
-    .brief-board.story-mobile-art .brief-row { padding: .45rem 0; font-size: .8rem; }
+    .story-mobile-art { display: block; width: 100%; max-width: 38rem; height: auto; aspect-ratio: 16 / 9; margin-top: 1.5rem; object-fit: contain; border-radius: 1rem; background: #111; }
     .story-image-note { display: block; margin-top: .55rem; color: var(--color-light-text-muted); font-size: .78rem; }
   }
   @media (prefers-reduced-motion: reduce) {
     .process-story-step,.process-story-panel { transition: none; }
   }
   </style>
+
+
 
 
