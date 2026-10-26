@@ -83,9 +83,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
   .thank-you-card {
     position: relative;
-    max-width: 48rem;
+    width: min(100%, 48rem);
     margin: 0 auto;
-    padding: clamp(2.25rem, 7vw, 5rem);
+    padding: clamp(1.5rem, 6vw, 4.5rem);
     overflow: hidden;
     text-align: center;
     border: 1px solid var(--color-light-border);
@@ -144,22 +144,33 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     max-width: 38rem;
     margin: 0 auto 1rem;
     color: var(--color-light-text);
-    font-size: clamp(2.25rem, 6vw, 3.75rem);
-    line-height: 1.05;
-    letter-spacing: -0.055em;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
   }
 
   .thank-you-copy {
-    max-width: 31rem;
+    max-width: 34rem;
     margin: 0 auto 1.5rem;
     color: var(--color-light-text-muted);
     font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: 1.7;
+    text-wrap: pretty;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
   }
 
   .response-time {
     display: inline-flex;
+    max-width: 100%;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 0.55rem;
     margin-bottom: 2rem;
     padding: 0.65rem 1rem;
@@ -169,10 +180,12 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     background: var(--color-light-surface);
     font-size: 0.875rem;
     font-weight: 600;
+    text-align: center;
   }
 
   .response-time svg {
     width: 1.1rem;
+    flex: 0 0 auto;
     color: #ed6b22;
   }
 
@@ -213,8 +226,21 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   }
 
   @media (max-width: 560px) {
+    .thank-you-page {
+      padding-inline: 1rem;
+    }
+
     .thank-you-card {
+      padding: 2rem 1.25rem;
       border-radius: 1.5rem;
+    }
+
+    .thank-you-card h1 {
+      font-size: clamp(1.875rem, 8vw, 2.5rem);
+    }
+
+    .response-time {
+      border-radius: 1rem;
     }
 
     .thank-you-actions {
