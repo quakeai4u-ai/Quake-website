@@ -11,7 +11,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   // TODO: Replace with your actual domain before launch
   // This is used to generate correct URLs in the sitemap
-  site: "https://quake.dev",
+  site: "https://www.quakeai.store",
 
   // Plugins that add features to your site
   integrations: [

@@ -4,4 +4,4 @@ Allow: /
 
 # Tell search engines where the sitemap is
 # TODO: Replace with your actual domain before launch
-Sitemap: https://quake.dev/sitemap-index.xml
+Sitemap: https://www.quakeai.store/sitemap-index.xml

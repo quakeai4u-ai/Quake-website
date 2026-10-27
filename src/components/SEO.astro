@@ -53,10 +53,18 @@ const ogImageURL = new URL(ogImage, Astro.site);
 <meta property="og:url" content={canonicalURL.href} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
+<meta property="og:site_name" content="Quake" />
+<meta property="og:locale" content="en_IN" />
 <meta property="og:image" content={ogImageURL.href} />
+<meta property="og:image:secure_url" content={ogImageURL.href} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Quake builds software for growing businesses, including web apps, online stores, and practical AI solutions." />
 
 <!-- Twitter Card tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImageURL.href} />
+<meta name="twitter:image:alt" content="Quake builds software for growing businesses, including web apps, online stores, and practical AI solutions." />
